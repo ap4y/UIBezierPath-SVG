@@ -206,7 +206,7 @@
         SVGQuadraticCurveToCommand* quadraticCurveTo = [[SVGQuadraticCurveToCommand alloc] init];        
         SVGSmootQuadratichCurveToCommand* smoothQuadraticCurveTo = [[SVGSmootQuadratichCurveToCommand alloc] init];        
         SVGClosePathCommand* closePath = [[SVGClosePathCommand alloc] init];        
-        commands = [NSDictionary dictionaryWithObjectsAndKeys:
+        commands = [[NSDictionary alloc] initWithObjectsAndKeys:
                     move, @"m", 
                     lineTo, @"l",
                     horizontalLineTo, @"h",
@@ -222,9 +222,7 @@
 }
 
 - (id<SVGCommand>)getCommand:(NSString*)commandLetter {
-    id<SVGCommand> command = [commands objectForKey:[commandLetter lowercaseString]];
-    
-    return command;
+    return [commands objectForKey:[commandLetter lowercaseString]];
 }
 
 @end
