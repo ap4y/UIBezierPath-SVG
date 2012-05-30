@@ -13,11 +13,13 @@ typedef enum CType {
 
 //Commands protocol
 @protocol SVGCommand <NSObject>
-- (void)processCommand:(NSString*)commandString forPath:(UIBezierPath*)path;
+- (void)processCommand:(NSString*)commandString withPrevCommand:(NSString*)prevCommand forPath:(UIBezierPath*)path;
 @end
 
 //Commands abstract class
-@interface SVGCommandImpl : NSObject <SVGCommand>
+@interface SVGCommandImpl : NSObject <SVGCommand> {
+    NSString* _prevCommand;
+}
 - (void)performCommand:(CGFloat*)params withType:(CommandType)type forPath:(UIBezierPath*)path;
 @end
 //Commands concrete implementation

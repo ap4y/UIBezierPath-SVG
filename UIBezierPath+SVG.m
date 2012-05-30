@@ -36,7 +36,8 @@
     return [commandLetter isEqualToString:[commandLetter uppercaseString]];
 }
 
-- (void)processCommand:(NSString *)commandString forPath:(UIBezierPath *)path {
+- (void)processCommand:(NSString *)commandString withPrevCommand:(NSString *)prevCommand forPath:(UIBezierPath *)path {
+    _prevCommand = prevCommand;
     NSString* commandLetter = [commandString substringToIndex:1];
     CGFloat* params = [self getCommandParameters:commandString];
     [self performCommand:params
@@ -129,14 +130,51 @@
 @implementation SVGSmoothCurveToCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
+
+    CGPoint firstControlPoint = CGPointMake(path.currentPoint.x, path.currentPoint.y);
+    
+    if (_prevCommand && _prevCommand.length > 0) {
+        NSString* prevCommandType = [_prevCommand substringToIndex:1];
+        if ([[prevCommandType lowercaseString] isEqualToString:@"c"] ||
+            [[prevCommandType lowercaseString] isEqualToString:@"s"]) {
+                                
+            CGFloat* prevParams = [self getCommandParameters:_prevCommand];
+            if ([[prevCommandType lowercaseString] isEqualToString:@"c"]) {
+                
+                if ([self isAbsoluteCommand:prevCommandType]) {
+                    firstControlPoint = CGPointMake(-1*prevParams[2] + 2*path.currentPoint.x, 
+                                                    -1*prevParams[3] + 2*path.currentPoint.y);
+                }
+                else {
+                    CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[4], 
+                                                          path.currentPoint.y - prevParams[5]);
+                    firstControlPoint = CGPointMake(-1*(prevParams[2] + oldCurrentPoint.x) + 2*path.currentPoint.x, 
+                                                    -1*(prevParams[3] + oldCurrentPoint.y) + 2*path.currentPoint.y);                    
+                }                
+            }
+            else {
+                if ([self isAbsoluteCommand:prevCommandType]) {
+                    firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x, 
+                                                    -1*prevParams[1] + 2*path.currentPoint.y);
+                }
+                else {
+                    CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[2], 
+                                                          path.currentPoint.y - prevParams[3]);
+                    firstControlPoint = CGPointMake(-1*(prevParams[0] + oldCurrentPoint.x) + 2*path.currentPoint.x, 
+                                                    -1*(prevParams[1] + oldCurrentPoint.y) + 2*path.currentPoint.y);                    
+                }
+            }
+        }
+    }
+    
     if (type == Absolute) {
         [path addCurveToPoint:CGPointMake(params[2], params[3]) 
-                controlPoint1:CGPointMake(path.currentPoint.x, path.currentPoint.y) 
+                controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y) 
                 controlPoint2:CGPointMake(params[0], params[1])];
     }
     else {
         [path addCurveToPoint:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3]) 
-                controlPoint1:CGPointMake(path.currentPoint.x, path.currentPoint.y) 
+                controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y) 
                 controlPoint2:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])];
     }
 }
@@ -161,13 +199,34 @@
 @implementation SVGSmootQuadratichCurveToCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
+    CGPoint firstControlPoint = CGPointMake(path.currentPoint.x, path.currentPoint.y);
+    
+    if (_prevCommand && _prevCommand.length > 0) {
+        NSString* prevCommandType = [_prevCommand substringToIndex:1];
+        if ([[prevCommandType lowercaseString] isEqualToString:@"q"]) {
+            
+            CGFloat* prevParams = [self getCommandParameters:_prevCommand];
+                        
+            if ([self isAbsoluteCommand:prevCommandType]) {
+                firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x, 
+                                                -1*prevParams[1] + 2*path.currentPoint.y);
+            }
+            else {
+                CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[2], 
+                                                      path.currentPoint.y - prevParams[3]);
+                firstControlPoint = CGPointMake(-1*(prevParams[0] + oldCurrentPoint.x) + 2*path.currentPoint.x, 
+                                                -1*(prevParams[1] + oldCurrentPoint.y) + 2*path.currentPoint.y);                    
+            }                
+        }
+    }
+    
     if (type == Absolute) {
         [path addQuadCurveToPoint:CGPointMake(params[0], params[1]) 
-                     controlPoint:CGPointMake(path.currentPoint.x, path.currentPoint.y)];
+                     controlPoint:CGPointMake(firstControlPoint.x, firstControlPoint.y)];
     }
     else {
         [path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1]) 
-                     controlPoint:CGPointMake(path.currentPoint.x, path.currentPoint.y)];
+                     controlPoint:CGPointMake(firstControlPoint.x, firstControlPoint.y)];
     }
 }
 
@@ -229,12 +288,12 @@
 
 @implementation UIBezierPath (SVG)
 
-- (void)processCommand:(NSString*)commandString forPath:(UIBezierPath*)path {    
++ (void)processCommand:(NSString*)commandString withPrevCommane:(NSString*)prevCommand andPath:(UIBezierPath*)path {    
     NSString* commandLetter = [commandString substringToIndex:1];
 
     id<SVGCommand> command = [[SVGCommandFactory defaultFactory] getCommand:commandLetter];
     if (command) {        
-        [command processCommand:commandString forPath:path];
+        [command processCommand:commandString withPrevCommand:prevCommand forPath:path];
     }
     else {
         @throw [NSException exceptionWithName:NSInvalidArgumentException 
@@ -243,40 +302,42 @@
     }
 }
 
-- (UIBezierPath *)initWithSVGString:(NSString*)svgString {
-    UIBezierPath* aPath = [UIBezierPath bezierPath];    
-    
-    NSError  *error  = NULL;    
-    NSRegularExpression* regex = [NSRegularExpression 
-                                  regularExpressionWithPattern:@"[A-Za-z]"
-                                  options:0
-                                  error:&error];
-    
-    NSArray* matches = [regex matchesInString:svgString
++ (UIBezierPath *)pathWithSVGString:(NSString*)svgString {
+    UIBezierPath* aPath = [UIBezierPath bezierPath];
+    if (aPath) {
+        NSError  *error  = NULL;    
+        NSRegularExpression* regex = [NSRegularExpression 
+                                      regularExpressionWithPattern:@"[A-Za-z]"
                                       options:0
-                                        range:NSMakeRange(0, [svgString length])];
-    
-    NSTextCheckingResult* prevMatch = nil;
-    for (int i = 0; i < matches.count; i++) {
-        NSTextCheckingResult* match = [matches objectAtIndex:i];
+                                      error:&error];
         
-        if (prevMatch) {
-            NSString* result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, 
-                                                                         match.range.location - prevMatch.range.location)];
-            [self processCommand:result forPath:aPath];
-        }
-        prevMatch = match;
-    }    
-    
-    NSString *result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, 
-                                                                 svgString.length - prevMatch.range.location)];
-    [self processCommand:result forPath:aPath];
-    
+        NSArray* matches = [regex matchesInString:svgString
+                                          options:0
+                                            range:NSMakeRange(0, [svgString length])];
+        
+        NSTextCheckingResult* prevMatch = nil;
+        NSString* prevCommand = @"";
+        for (int i = 0; i < matches.count; i++) {
+            NSTextCheckingResult* match = [matches objectAtIndex:i];
+            
+            if (prevMatch) {
+                NSString* result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, 
+                                                                             match.range.location - prevMatch.range.location)];
+                [self processCommand:result withPrevCommane:prevCommand andPath:aPath];
+                prevCommand = result;
+            }
+            prevMatch = match;
+        }    
+        
+        NSString *result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, 
+                                                                     svgString.length - prevMatch.range.location)];
+        [self processCommand:result withPrevCommane:prevCommand andPath:aPath];        
+    }
     return aPath;
 }
 
 + (UIBezierPath *)bezierPathWithSVGString:(NSString*)svgString {
-    return [[[UIBezierPath alloc] initWithSVGString:svgString] autorelease];
+    return [self pathWithSVGString:svgString];
 }
 
 @end
