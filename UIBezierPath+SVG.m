@@ -231,7 +231,7 @@
 
 @implementation UIBezierPath (SVG)
 
-+ (void)processCommand:(NSString*)commandString forPath:(UIBezierPath*)path {    
+- (void)processCommand:(NSString*)commandString forPath:(UIBezierPath*)path {    
     NSString* commandLetter = [commandString substringToIndex:1];
 
     id<SVGCommand> command = [[SVGCommandFactory defaultFactory] getCommand:commandLetter];
@@ -245,7 +245,7 @@
     }
 }
 
-+ (UIBezierPath *)bezierPathWithSVGString:(NSString*)svgString {
+- (UIBezierPath *)initWithSVGString:(NSString*)svgString {
     UIBezierPath* aPath = [UIBezierPath bezierPath];    
     
     NSError  *error  = NULL;    
@@ -275,6 +275,10 @@
     [self processCommand:result forPath:aPath];
     
     return aPath;
+}
+
++ (UIBezierPath *)bezierPathWithSVGString:(NSString*)svgString {
+    return [[[UIBezierPath alloc] initWithSVGString:svgString] autorelease];
 }
 
 @end
