@@ -289,6 +289,12 @@
 @implementation UIBezierPath (SVG)
 
 + (void)processCommand:(NSString*)commandString withPrevCommane:(NSString*)prevCommand andPath:(UIBezierPath*)path {    
+    if (!commandString || commandString.length <= 0) {
+        @throw [NSException exceptionWithName:NSInvalidArgumentException 
+                                       reason:[NSString stringWithFormat:@"Invalid command %@", commandString]
+                                     userInfo:nil];
+    }
+
     NSString* commandLetter = [commandString substringToIndex:1];
 
     id<SVGCommand> command = [[SVGCommandFactory defaultFactory] getCommand:commandLetter];
@@ -337,6 +343,12 @@
 }
 
 + (UIBezierPath *)bezierPathWithSVGString:(NSString*)svgString {
+    if (!svgString || svgString.length <= 0) {
+        @throw [NSException exceptionWithName:NSInvalidArgumentException 
+                                       reason:[NSString stringWithFormat:@"SVG string should be nonzero length"]
+                                     userInfo:nil];
+    }
+    
     return [self pathWithSVGString:svgString];
 }
 
