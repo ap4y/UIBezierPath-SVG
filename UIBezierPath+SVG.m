@@ -164,6 +164,7 @@
                                                     -1*(prevParams[1] + oldCurrentPoint.y) + 2*path.currentPoint.y);                    
                 }
             }
+            free(prevParams);
         }
     }
     
@@ -216,7 +217,8 @@
                                                       path.currentPoint.y - prevParams[3]);
                 firstControlPoint = CGPointMake(-1*(prevParams[0] + oldCurrentPoint.x) + 2*path.currentPoint.x, 
                                                 -1*(prevParams[1] + oldCurrentPoint.y) + 2*path.currentPoint.y);                    
-            }                
+            }       
+            free(prevParams);
         }
     }
     
@@ -256,15 +258,15 @@
 {
     self = [super init];
     if (self) {
-        SVGMoveCommand* move = [[SVGMoveCommand alloc] init];
-        SVGLineToCommand* lineTo = [[SVGLineToCommand alloc] init];        
-        SVGHorizontalLineToCommand* horizontalLineTo = [[SVGHorizontalLineToCommand alloc] init];        
-        SVGVerticalLineToCommand* verticalLineTo = [[SVGVerticalLineToCommand alloc] init];        
-        SVGCurveToCommand* curveTo = [[SVGCurveToCommand alloc] init];        
-        SVGSmoothCurveToCommand* smoothCurveTo = [[SVGSmoothCurveToCommand alloc] init];        
-        SVGQuadraticCurveToCommand* quadraticCurveTo = [[SVGQuadraticCurveToCommand alloc] init];        
-        SVGSmootQuadratichCurveToCommand* smoothQuadraticCurveTo = [[SVGSmootQuadratichCurveToCommand alloc] init];        
-        SVGClosePathCommand* closePath = [[SVGClosePathCommand alloc] init];        
+        SVGMoveCommand* move = [[[SVGMoveCommand alloc] init] autorelease];
+        SVGLineToCommand* lineTo = [[[SVGLineToCommand alloc] init] autorelease];        
+        SVGHorizontalLineToCommand* horizontalLineTo = [[[SVGHorizontalLineToCommand alloc] init] autorelease];        
+        SVGVerticalLineToCommand* verticalLineTo = [[[SVGVerticalLineToCommand alloc] init] autorelease];        
+        SVGCurveToCommand* curveTo = [[[SVGCurveToCommand alloc] init] autorelease];        
+        SVGSmoothCurveToCommand* smoothCurveTo = [[[SVGSmoothCurveToCommand alloc] init] autorelease];        
+        SVGQuadraticCurveToCommand* quadraticCurveTo = [[[SVGQuadraticCurveToCommand alloc] init] autorelease];        
+        SVGSmootQuadratichCurveToCommand* smoothQuadraticCurveTo = [[[SVGSmootQuadratichCurveToCommand alloc] init] autorelease];        
+        SVGClosePathCommand* closePath = [[[SVGClosePathCommand alloc] init] autorelease];        
         commands = [[NSDictionary alloc] initWithObjectsAndKeys:
                     move, @"m", 
                     lineTo, @"l",
