@@ -1,7 +1,7 @@
 UIBezierPath+SVG
 =============
 
-Category for creation UIBezierPath from SVG string
+UIBezierPath creation from SVG string
 
 [![](https://github.com/ap4y/UIBezierPath-SVG/raw/master/img.png)](https://github.com/ap4y/UIBezierPath-SVG/raw/master/img.png)
 
