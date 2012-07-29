@@ -10,21 +10,21 @@
 
 @implementation SVGCommandImpl
 
-- (CGFloat*)getCommandParameters:(NSString*)commnadString {
+- (CGFloat*)getCommandParameters:(NSString*)commandString {
     NSError  *error  = NULL;    
     NSRegularExpression* regex = [NSRegularExpression 
                                   regularExpressionWithPattern:@"[-+]?[0-9]*\\.?[0-9]+"
                                   options:0
                                   error:&error];
     
-    NSArray* matches = [regex matchesInString:commnadString
+    NSArray* matches = [regex matchesInString:commandString
                                       options:0
-                                        range:NSMakeRange(0, [commnadString length])];
+                                        range:NSMakeRange(0, [commandString length])];
     
     CGFloat *result = (CGFloat*)malloc(matches.count * sizeof(CGFloat));
     for (int i = 0; i < matches.count; i++) {
         NSTextCheckingResult* match = [matches objectAtIndex:i];
-        NSString* paramString = [commnadString substringWithRange:match.range];
+        NSString* paramString = [commandString substringWithRange:match.range];
         CGFloat param = (CGFloat)[paramString floatValue];
         result[i] = param;
     }
