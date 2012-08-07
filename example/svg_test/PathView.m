@@ -18,12 +18,18 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _svgString = svgString;
+        _svgString = [svgString retain];
         _scale = scale;
-        _color = color;
+        _color = [color retain];
         [self setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
+}
+
+- (void)dealloc {
+    [_color release];
+    [_svgString release];
+    [super dealloc];
 }
 
 - (void)drawRect:(CGRect)rect
