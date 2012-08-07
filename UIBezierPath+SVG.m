@@ -339,34 +339,28 @@
 + (UIBezierPath *)pathWithSVGString:(NSString*)svgString {
     UIBezierPath* aPath = [UIBezierPath bezierPath];
     if (aPath) {
-        NSError  *error  = NULL;    
-        NSRegularExpression* regex = [NSRegularExpression 
-                                      regularExpressionWithPattern:@"[A-Za-z]"
-                                      options:0
-                                      error:&error];
-        
-        NSArray* matches = [regex matchesInString:svgString
-                                          options:0
-                                            range:NSMakeRange(0, [svgString length])];
-        
-        NSTextCheckingResult* prevMatch = nil;
-        NSString* prevCommand = @"";
-        for (int i = 0; i < matches.count; i++) {
-            NSTextCheckingResult* match = [matches objectAtIndex:i];
-            
-            if (prevMatch) {
-                NSString* result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, 
-                                                                             match.range.location - prevMatch.range.location)];
-                [self processCommand:result withPrevCommane:prevCommand andPath:aPath];
-                prevCommand = result;
+        NSRegularExpression* regex = [self commandRegex];
+        __block NSTextCheckingResult* prevMatch = nil;
+        __block NSString* prevCommand = @"";
+        [regex enumerateMatchesInString:svgString options:0 range:NSMakeRange(0, [svgString length]) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+            @autoreleasepool {
+                if (prevMatch) {
+                    NSString* result =
+                    [svgString substringWithRange:NSMakeRange(prevMatch.range.location,
+                                                              match.range.location - prevMatch.range.location)];
+                    [self processCommand:result withPrevCommand:prevCommand andPath:aPath];
+                    prevCommand = result;
+                    [prevMatch release];
+                }
+                prevMatch = [match retain];
             }
-            prevMatch = match;
-        }    
+        }];
         
         NSString *result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, 
                                                                      svgString.length - prevMatch.range.location)];
-        [self processCommand:result withPrevCommane:prevCommand andPath:aPath];        
-    }
+        [self processCommand:result withPrevCommand:prevCommand andPath:aPath];
+        [prevMatch release];
+    }   
     return aPath;
 }
 
