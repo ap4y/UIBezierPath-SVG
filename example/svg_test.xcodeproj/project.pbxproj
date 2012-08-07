@@ -18,6 +18,9 @@
 		95B648D71574D27A0070B87C /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B648D51574D27A0070B87C /* ViewController_iPhone.xib */; };
 		95B648DA1574D27A0070B87C /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B648D81574D27A0070B87C /* ViewController_iPad.xib */; };
 		95B648E21574D2970070B87C /* PathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B648E11574D2970070B87C /* PathView.m */; };
+		95EE6A0815D13D1B001AD694 /* TigerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A0715D13D1B001AD694 /* TigerView.m */; };
+		95EE6A0B15D13D89001AD694 /* tiger.js in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A0A15D13D89001AD694 /* tiger.js */; };
+		95EE6A1315D13E43001AD694 /* tiger.js in Resources */ = {isa = PBXBuildFile; fileRef = 95EE6A0A15D13D89001AD694 /* tiger.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		95B648D91574D27A0070B87C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
 		95B648E01574D2970070B87C /* PathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathView.h; sourceTree = "<group>"; };
 		95B648E11574D2970070B87C /* PathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathView.m; sourceTree = "<group>"; };
+		95EE6A0615D13D1B001AD694 /* TigerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TigerView.h; sourceTree = "<group>"; };
+		95EE6A0715D13D1B001AD694 /* TigerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TigerView.m; sourceTree = "<group>"; };
+		95EE6A0A15D13D89001AD694 /* tiger.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = tiger.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +97,13 @@
 				95B648D31574D27A0070B87C /* ViewController.m */,
 				95B648D51574D27A0070B87C /* ViewController_iPhone.xib */,
 				95B648D81574D27A0070B87C /* ViewController_iPad.xib */,
-				95B648C71574D27A0070B87C /* Supporting Files */,
 				95B648E01574D2970070B87C /* PathView.h */,
 				95B648E11574D2970070B87C /* PathView.m */,
 				95A5CF6A15750D0E00C7CF8D /* UIBezierPath+SVG.h */,
 				95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */,
+				95EE6A0615D13D1B001AD694 /* TigerView.h */,
+				95EE6A0715D13D1B001AD694 /* TigerView.m */,
+				95B648C71574D27A0070B87C /* Supporting Files */,
 			);
 			path = svg_test;
 			sourceTree = "<group>";
@@ -103,6 +111,7 @@
 		95B648C71574D27A0070B87C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				95EE6A0A15D13D89001AD694 /* tiger.js */,
 				95B648C81574D27A0070B87C /* svg_test-Info.plist */,
 				95B648C91574D27A0070B87C /* InfoPlist.strings */,
 				95B648CC1574D27A0070B87C /* main.m */,
@@ -161,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95EE6A1315D13E43001AD694 /* tiger.js in Resources */,
 				95B648CB1574D27A0070B87C /* InfoPlist.strings in Resources */,
 				95B648D71574D27A0070B87C /* ViewController_iPhone.xib in Resources */,
 				95B648DA1574D27A0070B87C /* ViewController_iPad.xib in Resources */,
@@ -179,6 +189,8 @@
 				95B648D11574D27A0070B87C /* AppDelegate.m in Sources */,
 				95B648D41574D27A0070B87C /* ViewController.m in Sources */,
 				95B648E21574D2970070B87C /* PathView.m in Sources */,
+				95EE6A0815D13D1B001AD694 /* TigerView.m in Sources */,
+				95EE6A0B15D13D89001AD694 /* tiger.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

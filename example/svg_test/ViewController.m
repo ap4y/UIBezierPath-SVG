@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PathView.h"
+#import "TigerView.h"
 
 #define RGBA(R,G,B,A) [UIColor colorWithRed:R/255.0 \
                                       green:G/255.0 \
@@ -52,6 +53,10 @@
                                                     scale:4.0 
                                                 fillColor:RGBA(102.0, 102.0, 153.0, 255.0)];
     [self.view addSubview:chromeView];
+    
+    TigerView* tigerView =
+        [[[TigerView alloc] initWithFrame:CGRectMake(200.0, 220.0, 550.0, 550.0)] autorelease];
+    [self.view addSubview:tigerView];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];    
 }
