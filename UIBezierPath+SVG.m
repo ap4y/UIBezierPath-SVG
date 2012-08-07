@@ -41,7 +41,9 @@
     return [commandLetter isEqualToString:[commandLetter uppercaseString]];
 }
 
-- (void)processCommand:(NSString *)commandString withPrevCommand:(NSString *)prevCommand forPath:(UIBezierPath *)path {
+- (void)processCommand:(NSString *)commandString
+       withPrevCommand:(NSString *)prevCommand
+               forPath:(UIBezierPath *)path {
     _prevCommand = prevCommand;
     NSString* commandLetter = [commandString substringToIndex:1];
     CGFloat* params = [self getCommandParameters:commandString];
@@ -51,7 +53,9 @@
     free(params);
 }
 
-- (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
+- (void)performCommand:(CGFloat *)params
+              withType:(CommandType)type
+               forPath:(UIBezierPath *)path {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)]
                                  userInfo:nil];
@@ -295,7 +299,7 @@
 
 @implementation UIBezierPath (SVG)
 
-+ (void)processCommand:(NSString*)commandString withPrevCommane:(NSString*)prevCommand andPath:(UIBezierPath*)path {    
++ (void)processCommand:(NSString*)commandString withPrevCommand:(NSString*)prevCommand andPath:(UIBezierPath*)path {
     if (!commandString || commandString.length <= 0) {
         @throw [NSException exceptionWithName:NSInvalidArgumentException 
                                        reason:[NSString stringWithFormat:@"Invalid command %@", commandString]
