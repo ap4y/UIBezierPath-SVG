@@ -352,8 +352,9 @@
                         [svgString substringWithRange:NSMakeRange(prevMatch.range.location,
                                                                   match.range.location - prevMatch.range.location)];
                     [self processCommand:result withPrevCommand:prevCommand andPath:aPath];
-                    prevCommand = result;
+                    [prevCommand release];
                     [prevMatch release];
+                    prevCommand = [result retain];
                 }
                 prevMatch = [match retain];
             }
@@ -363,6 +364,7 @@
                                                                      svgString.length - prevMatch.range.location)];
         [self processCommand:result withPrevCommand:prevCommand andPath:aPath];
         [prevMatch release];
+        [prevCommand release];
     }   
     return aPath;
 }
