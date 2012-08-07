@@ -342,12 +342,15 @@
         NSRegularExpression* regex = [self commandRegex];
         __block NSTextCheckingResult* prevMatch = nil;
         __block NSString* prevCommand = @"";
-        [regex enumerateMatchesInString:svgString options:0 range:NSMakeRange(0, [svgString length]) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+        [regex enumerateMatchesInString:svgString
+                                options:0
+                                  range:NSMakeRange(0, [svgString length])
+                             usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
             @autoreleasepool {
                 if (prevMatch) {
                     NSString* result =
-                    [svgString substringWithRange:NSMakeRange(prevMatch.range.location,
-                                                              match.range.location - prevMatch.range.location)];
+                        [svgString substringWithRange:NSMakeRange(prevMatch.range.location,
+                                                                  match.range.location - prevMatch.range.location)];
                     [self processCommand:result withPrevCommand:prevCommand andPath:aPath];
                     prevCommand = result;
                     [prevMatch release];
