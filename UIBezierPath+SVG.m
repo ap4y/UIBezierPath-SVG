@@ -144,13 +144,16 @@
     
     if (_prevCommand && _prevCommand.length > 0) {
         NSString* prevCommandType = [_prevCommand substringToIndex:1];
-        if ([[prevCommandType lowercaseString] isEqualToString:@"c"] ||
-            [[prevCommandType lowercaseString] isEqualToString:@"s"]) {
-                                
+        NSString* prevCommandTypeLowercase = [prevCommandType lowercaseString];
+        BOOL isAbsolute = ![prevCommandType isEqualToString:prevCommandTypeLowercase];
+        
+        if ([prevCommandTypeLowercase isEqualToString:@"c"] ||
+            [prevCommandTypeLowercase isEqualToString:@"s"]) {
+                                            
             CGFloat* prevParams = [self getCommandParameters:_prevCommand];
-            if ([[prevCommandType lowercaseString] isEqualToString:@"c"]) {
+            if ([prevCommandTypeLowercase isEqualToString:@"c"]) {
                 
-                if ([self isAbsoluteCommand:prevCommandType]) {
+                if (isAbsolute) {
                     firstControlPoint = CGPointMake(-1*prevParams[2] + 2*path.currentPoint.x, 
                                                     -1*prevParams[3] + 2*path.currentPoint.y);
                 }
@@ -162,7 +165,7 @@
                 }                
             }
             else {
-                if ([self isAbsoluteCommand:prevCommandType]) {
+                if (isAbsolute) {
                     firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x, 
                                                     -1*prevParams[1] + 2*path.currentPoint.y);
                 }
@@ -213,11 +216,14 @@
     
     if (_prevCommand && _prevCommand.length > 0) {
         NSString* prevCommandType = [_prevCommand substringToIndex:1];
-        if ([[prevCommandType lowercaseString] isEqualToString:@"q"]) {
+        NSString* prevCommandTypeLowercase = [prevCommandType lowercaseString];
+        BOOL isAbsolute = ![prevCommandType isEqualToString:prevCommandTypeLowercase];
+
+        if ([prevCommandTypeLowercase isEqualToString:@"q"]) {
             
             CGFloat* prevParams = [self getCommandParameters:_prevCommand];
                         
-            if ([self isAbsoluteCommand:prevCommandType]) {
+            if (isAbsolute) {
                 firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x, 
                                                 -1*prevParams[1] + 2*path.currentPoint.y);
             }
