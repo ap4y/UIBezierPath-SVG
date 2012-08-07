@@ -10,17 +10,22 @@
 
 @implementation SVGCommandImpl
 
++ (NSRegularExpression*)paramRegex {
+    static NSRegularExpression* _paramRegex;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _paramRegex = [[NSRegularExpression alloc] initWithPattern:@"[-+]?[0-9]*\\.?[0-9]+"
+                                                           options:0
+                                                             error:nil];
+    });
+    return _paramRegex;
+}
+
 - (CGFloat*)getCommandParameters:(NSString*)commandString {
-    NSError  *error  = NULL;    
-    NSRegularExpression* regex = [NSRegularExpression 
-                                  regularExpressionWithPattern:@"[-+]?[0-9]*\\.?[0-9]+"
-                                  options:0
-                                  error:&error];
-    
+    NSRegularExpression* regex = [SVGCommandImpl paramRegex];    
     NSArray* matches = [regex matchesInString:commandString
                                       options:0
                                         range:NSMakeRange(0, [commandString length])];
-    
     CGFloat *result = (CGFloat*)malloc(matches.count * sizeof(CGFloat));
     for (int i = 0; i < matches.count; i++) {
         NSTextCheckingResult* match = [matches objectAtIndex:i];
@@ -308,6 +313,17 @@
                                        reason:[NSString stringWithFormat:@"Unknown command %@", commandLetter]
                                      userInfo:nil];
     }
+}
+
++ (NSRegularExpression*)commandRegex {
+    static NSRegularExpression* _commandRegex;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _commandRegex = [[NSRegularExpression alloc] initWithPattern:@"[A-Za-z]"
+                                                             options:0
+                                                               error:nil];
+    });
+    return _commandRegex;
 }
 
 + (UIBezierPath *)pathWithSVGString:(NSString*)svgString {
