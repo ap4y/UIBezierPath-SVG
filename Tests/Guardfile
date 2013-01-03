@@ -1,0 +1,13 @@
+# A sample Guardfile
+# More info at https://github.com/guard/guard#readme
+
+guard :ocunit,
+      :test_paths    => ['UIBezierPath_SVGTests'],
+      :derived_data  => '/tmp/tests',
+      :workspace     => 'UIBezierPath_SVG.xcworkspace',
+      :scheme        => 'UnitTests',
+      :notification  => false,
+      :test_bundle   => 'UIBezierPath_SVGTests' do
+
+  watch(%r{^UIBezierPath_SVGTests/.+Tests\.m})
+end

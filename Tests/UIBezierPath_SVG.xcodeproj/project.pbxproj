@@ -1,617 +1,305 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>44FB0D9AC0F44DA8A02C2BE1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9DE943773FC348EB90879070</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict/>
-		</dict>
-		<key>4D00168D4072488CB7255DC2</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>1</string>
-		</dict>
-		<key>61C2D8EFA70A41C6947A0E9D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>9523218616950FCB00971839</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>952321D6169511C300971839</string>
-				<string>952321D7169511C300971839</string>
-				<string>952321B916950FCC00971839</string>
-				<string>9523219416950FCB00971839</string>
-				<string>9523219216950FCB00971839</string>
-				<string>61C2D8EFA70A41C6947A0E9D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9523218816950FCB00971839</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0450</string>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>9523218B16950FCB00971839</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>9523218616950FCB00971839</string>
-			<key>productRefGroup</key>
-			<string>9523219216950FCB00971839</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>952321B116950FCC00971839</string>
-			</array>
-		</dict>
-		<key>9523218B16950FCB00971839</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>952321C216950FCC00971839</string>
-				<string>952321C316950FCC00971839</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>9523219216950FCB00971839</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>952321B216950FCC00971839</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9523219416950FCB00971839</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9523219516950FCB00971839</string>
-				<string>9523219716950FCB00971839</string>
-				<string>952321B316950FCC00971839</string>
-				<string>9DE943773FC348EB90879070</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9523219516950FCB00971839</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>9523219716950FCB00971839</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>952321AD16950FCC00971839</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>952321C116950FCC00971839</string>
-				<string>952321D8169511C300971839</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>952321AE16950FCC00971839</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>952321B416950FCC00971839</string>
-				<string>952321B516950FCC00971839</string>
-				<string>952321B616950FCC00971839</string>
-				<string>44FB0D9AC0F44DA8A02C2BE1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>952321AF16950FCC00971839</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>952321B016950FCC00971839</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string># Run the unit tests in this test bundle.
-"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests"
-</string>
-		</dict>
-		<key>952321B116950FCC00971839</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>952321C716950FCC00971839</string>
-			<key>buildPhases</key>
-			<array>
-				<string>952321AD16950FCC00971839</string>
-				<string>952321AE16950FCC00971839</string>
-				<string>952321AF16950FCC00971839</string>
-				<string>952321B016950FCC00971839</string>
-				<string>4D00168D4072488CB7255DC2</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>UIBezierPath_SVGTests</string>
-			<key>productName</key>
-			<string>UIBezierPath_SVGTests</string>
-			<key>productReference</key>
-			<string>952321B216950FCC00971839</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle</string>
-		</dict>
-		<key>952321B216950FCC00971839</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>UIBezierPath_SVGTests.octest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>952321B316950FCC00971839</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SenTestingKit.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/SenTestingKit.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>952321B416950FCC00971839</key>
-		<dict>
-			<key>fileRef</key>
-			<string>952321B316950FCC00971839</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>952321B516950FCC00971839</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9523219516950FCB00971839</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>952321B616950FCC00971839</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9523219716950FCB00971839</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>952321B916950FCC00971839</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>952321BF16950FCC00971839</string>
-				<string>952321C016950FCC00971839</string>
-				<string>952321BA16950FCC00971839</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>UIBezierPath_SVGTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>952321BA16950FCC00971839</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>952321D51695117A00971839</string>
-				<string>952321BB16950FCC00971839</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>952321BB16950FCC00971839</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>UIBezierPath_SVGTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>952321BF16950FCC00971839</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIBezierPath_SVGTests.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>952321C016950FCC00971839</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIBezierPath_SVGTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>952321C116950FCC00971839</key>
-		<dict>
-			<key>fileRef</key>
-			<string>952321C016950FCC00971839</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>952321C216950FCC00971839</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>952321C316950FCC00971839</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.0</string>
-				<key>OTHER_CFLAGS</key>
-				<string>-DNS_BLOCK_ASSERTIONS=1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>952321C716950FCC00971839</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>952321C816950FCC00971839</string>
-				<string>952321C916950FCC00971839</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>952321C816950FCC00971839</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>61C2D8EFA70A41C6947A0E9D</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>"$(SDKROOT)/Developer/Library/Frameworks"</string>
-					<string>"$(DEVELOPER_LIBRARY_DIR)/Frameworks"</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>UIBezierPath_SVGTests/UIBezierPath_SVGTests-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>UIBezierPath_SVGTests/UIBezierPath_SVGTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>octest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>952321C916950FCC00971839</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>61C2D8EFA70A41C6947A0E9D</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>"$(SDKROOT)/Developer/Library/Frameworks"</string>
-					<string>"$(DEVELOPER_LIBRARY_DIR)/Frameworks"</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>UIBezierPath_SVGTests/UIBezierPath_SVGTests-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>UIBezierPath_SVGTests/UIBezierPath_SVGTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>octest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>952321D51695117A00971839</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIBezierPath_SVGTests-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>952321D6169511C300971839</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>UIBezierPath+SVG.h</string>
-			<key>path</key>
-			<string>../UIBezierPath+SVG.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>952321D7169511C300971839</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>UIBezierPath+SVG.m</string>
-			<key>path</key>
-			<string>../UIBezierPath+SVG.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>952321D8169511C300971839</key>
-		<dict>
-			<key>fileRef</key>
-			<string>952321D7169511C300971839</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9DE943773FC348EB90879070</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods.a</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>9523218816950FCB00971839</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44FB0D9AC0F44DA8A02C2BE1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE943773FC348EB90879070 /* libPods.a */; };
+		952321B416950FCC00971839 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952321B316950FCC00971839 /* SenTestingKit.framework */; };
+		952321B516950FCC00971839 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9523219516950FCB00971839 /* UIKit.framework */; };
+		952321B616950FCC00971839 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9523219716950FCB00971839 /* Foundation.framework */; };
+		952321C116950FCC00971839 /* UIBezierPath_SVGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 952321C016950FCC00971839 /* UIBezierPath_SVGTests.m */; };
+		952321D8169511C300971839 /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 952321D7169511C300971839 /* UIBezierPath+SVG.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		61C2D8EFA70A41C6947A0E9D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		9523219516950FCB00971839 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9523219716950FCB00971839 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		952321B216950FCC00971839 /* UIBezierPath_SVGTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIBezierPath_SVGTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		952321B316950FCC00971839 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		952321BB16950FCC00971839 /* UIBezierPath_SVGTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIBezierPath_SVGTests-Info.plist"; sourceTree = "<group>"; };
+		952321BF16950FCC00971839 /* UIBezierPath_SVGTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBezierPath_SVGTests.h; sourceTree = "<group>"; };
+		952321C016950FCC00971839 /* UIBezierPath_SVGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBezierPath_SVGTests.m; sourceTree = "<group>"; };
+		952321D51695117A00971839 /* UIBezierPath_SVGTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath_SVGTests-Prefix.pch"; sourceTree = "<group>"; };
+		952321D6169511C300971839 /* UIBezierPath+SVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBezierPath+SVG.h"; path = "../UIBezierPath+SVG.h"; sourceTree = "<group>"; };
+		952321D7169511C300971839 /* UIBezierPath+SVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+SVG.m"; path = "../UIBezierPath+SVG.m"; sourceTree = "<group>"; };
+		9DE943773FC348EB90879070 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		952321AE16950FCC00971839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				952321B416950FCC00971839 /* SenTestingKit.framework in Frameworks */,
+				952321B516950FCC00971839 /* UIKit.framework in Frameworks */,
+				952321B616950FCC00971839 /* Foundation.framework in Frameworks */,
+				44FB0D9AC0F44DA8A02C2BE1 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9523218616950FCB00971839 = {
+			isa = PBXGroup;
+			children = (
+				952321D6169511C300971839 /* UIBezierPath+SVG.h */,
+				952321D7169511C300971839 /* UIBezierPath+SVG.m */,
+				952321B916950FCC00971839 /* UIBezierPath_SVGTests */,
+				9523219416950FCB00971839 /* Frameworks */,
+				9523219216950FCB00971839 /* Products */,
+				61C2D8EFA70A41C6947A0E9D /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		9523219216950FCB00971839 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				952321B216950FCC00971839 /* UIBezierPath_SVGTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9523219416950FCB00971839 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9523219516950FCB00971839 /* UIKit.framework */,
+				9523219716950FCB00971839 /* Foundation.framework */,
+				952321B316950FCC00971839 /* SenTestingKit.framework */,
+				9DE943773FC348EB90879070 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		952321B916950FCC00971839 /* UIBezierPath_SVGTests */ = {
+			isa = PBXGroup;
+			children = (
+				952321BF16950FCC00971839 /* UIBezierPath_SVGTests.h */,
+				952321C016950FCC00971839 /* UIBezierPath_SVGTests.m */,
+				952321BA16950FCC00971839 /* Supporting Files */,
+			);
+			path = UIBezierPath_SVGTests;
+			sourceTree = "<group>";
+		};
+		952321BA16950FCC00971839 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				952321D51695117A00971839 /* UIBezierPath_SVGTests-Prefix.pch */,
+				952321BB16950FCC00971839 /* UIBezierPath_SVGTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		952321B116950FCC00971839 /* UIBezierPath_SVGTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 952321C716950FCC00971839 /* Build configuration list for PBXNativeTarget "UIBezierPath_SVGTests" */;
+			buildPhases = (
+				952321AD16950FCC00971839 /* Sources */,
+				952321AE16950FCC00971839 /* Frameworks */,
+				952321AF16950FCC00971839 /* Resources */,
+				952321B016950FCC00971839 /* ShellScript */,
+				4D00168D4072488CB7255DC2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIBezierPath_SVGTests;
+			productName = UIBezierPath_SVGTests;
+			productReference = 952321B216950FCC00971839 /* UIBezierPath_SVGTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9523218816950FCB00971839 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 9523218B16950FCB00971839 /* Build configuration list for PBXProject "UIBezierPath_SVG" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9523218616950FCB00971839;
+			productRefGroup = 9523219216950FCB00971839 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				952321B116950FCC00971839 /* UIBezierPath_SVGTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		952321AF16950FCC00971839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D00168D4072488CB7255DC2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		952321B016950FCC00971839 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		952321AD16950FCC00971839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				952321C116950FCC00971839 /* UIBezierPath_SVGTests.m in Sources */,
+				952321D8169511C300971839 /* UIBezierPath+SVG.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		952321C216950FCC00971839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		952321C316950FCC00971839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		952321C816950FCC00971839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61C2D8EFA70A41C6947A0E9D /* Pods.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIBezierPath_SVGTests/UIBezierPath_SVGTests-Prefix.pch";
+				INFOPLIST_FILE = "UIBezierPath_SVGTests/UIBezierPath_SVGTests-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		952321C916950FCC00971839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61C2D8EFA70A41C6947A0E9D /* Pods.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIBezierPath_SVGTests/UIBezierPath_SVGTests-Prefix.pch";
+				INFOPLIST_FILE = "UIBezierPath_SVGTests/UIBezierPath_SVGTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9523218B16950FCB00971839 /* Build configuration list for PBXProject "UIBezierPath_SVG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952321C216950FCC00971839 /* Debug */,
+				952321C316950FCC00971839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		952321C716950FCC00971839 /* Build configuration list for PBXNativeTarget "UIBezierPath_SVGTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952321C816950FCC00971839 /* Debug */,
+				952321C916950FCC00971839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9523218816950FCB00971839 /* Project object */;
+}
