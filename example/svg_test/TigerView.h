@@ -8,8 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TigerView : UIView {
-    NSString* _tigerPathes;
-}
-
+@interface TigerView : UIView
 @end
