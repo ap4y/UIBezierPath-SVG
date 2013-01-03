@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		952321B416950FCC00971839 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952321B316950FCC00971839 /* SenTestingKit.framework */; };
+		952321B516950FCC00971839 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9523219516950FCB00971839 /* UIKit.framework */; };
+		952321B616950FCC00971839 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9523219716950FCB00971839 /* Foundation.framework */; };
+		952321C116950FCC00971839 /* UIBezierPath_SVGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 952321C016950FCC00971839 /* UIBezierPath_SVGTests.m */; };
+		952321D8169511C300971839 /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 952321D7169511C300971839 /* UIBezierPath+SVG.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9523219516950FCB00971839 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9523219716950FCB00971839 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		952321B216950FCC00971839 /* UIBezierPath_SVGTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIBezierPath_SVGTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		952321B316950FCC00971839 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		952321BB16950FCC00971839 /* UIBezierPath_SVGTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIBezierPath_SVGTests-Info.plist"; sourceTree = "<group>"; };
+		952321BF16950FCC00971839 /* UIBezierPath_SVGTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBezierPath_SVGTests.h; sourceTree = "<group>"; };
+		952321C016950FCC00971839 /* UIBezierPath_SVGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBezierPath_SVGTests.m; sourceTree = "<group>"; };
+		952321D51695117A00971839 /* UIBezierPath_SVGTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath_SVGTests-Prefix.pch"; sourceTree = "<group>"; };
+		952321D6169511C300971839 /* UIBezierPath+SVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBezierPath+SVG.h"; path = "../UIBezierPath+SVG.h"; sourceTree = "<group>"; };
+		952321D7169511C300971839 /* UIBezierPath+SVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+SVG.m"; path = "../UIBezierPath+SVG.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		952321AE16950FCC00971839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				952321B416950FCC00971839 /* SenTestingKit.framework in Frameworks */,
+				952321B516950FCC00971839 /* UIKit.framework in Frameworks */,
+				952321B616950FCC00971839 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9523218616950FCB00971839 = {
+			isa = PBXGroup;
+			children = (
+				952321D6169511C300971839 /* UIBezierPath+SVG.h */,
+				952321D7169511C300971839 /* UIBezierPath+SVG.m */,
+				952321B916950FCC00971839 /* UIBezierPath_SVGTests */,
+				9523219416950FCB00971839 /* Frameworks */,
+				9523219216950FCB00971839 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9523219216950FCB00971839 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				952321B216950FCC00971839 /* UIBezierPath_SVGTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9523219416950FCB00971839 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9523219516950FCB00971839 /* UIKit.framework */,
+				9523219716950FCB00971839 /* Foundation.framework */,
+				952321B316950FCC00971839 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		952321B916950FCC00971839 /* UIBezierPath_SVGTests */ = {
+			isa = PBXGroup;
+			children = (
+				952321BF16950FCC00971839 /* UIBezierPath_SVGTests.h */,
+				952321C016950FCC00971839 /* UIBezierPath_SVGTests.m */,
+				952321BA16950FCC00971839 /* Supporting Files */,
+			);
+			path = UIBezierPath_SVGTests;
+			sourceTree = "<group>";
+		};
+		952321BA16950FCC00971839 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				952321D51695117A00971839 /* UIBezierPath_SVGTests-Prefix.pch */,
+				952321BB16950FCC00971839 /* UIBezierPath_SVGTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		952321B116950FCC00971839 /* UIBezierPath_SVGTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 952321C716950FCC00971839 /* Build configuration list for PBXNativeTarget "UIBezierPath_SVGTests" */;
+			buildPhases = (
+				952321AD16950FCC00971839 /* Sources */,
+				952321AE16950FCC00971839 /* Frameworks */,
+				952321AF16950FCC00971839 /* Resources */,
+				952321B016950FCC00971839 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIBezierPath_SVGTests;
+			productName = UIBezierPath_SVGTests;
+			productReference = 952321B216950FCC00971839 /* UIBezierPath_SVGTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9523218816950FCB00971839 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 9523218B16950FCB00971839 /* Build configuration list for PBXProject "UIBezierPath_SVG" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9523218616950FCB00971839;
+			productRefGroup = 9523219216950FCB00971839 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				952321B116950FCC00971839 /* UIBezierPath_SVGTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		952321AF16950FCC00971839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		952321B016950FCC00971839 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		952321AD16950FCC00971839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				952321C116950FCC00971839 /* UIBezierPath_SVGTests.m in Sources */,
+				952321D8169511C300971839 /* UIBezierPath+SVG.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		952321C216950FCC00971839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		952321C316950FCC00971839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		952321C816950FCC00971839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIBezierPath_SVGTests/UIBezierPath_SVGTests-Prefix.pch";
+				INFOPLIST_FILE = "UIBezierPath_SVGTests/UIBezierPath_SVGTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		952321C916950FCC00971839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIBezierPath_SVGTests/UIBezierPath_SVGTests-Prefix.pch";
+				INFOPLIST_FILE = "UIBezierPath_SVGTests/UIBezierPath_SVGTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9523218B16950FCB00971839 /* Build configuration list for PBXProject "UIBezierPath_SVG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952321C216950FCC00971839 /* Debug */,
+				952321C316950FCC00971839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		952321C716950FCC00971839 /* Build configuration list for PBXNativeTarget "UIBezierPath_SVGTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952321C816950FCC00971839 /* Debug */,
+				952321C916950FCC00971839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9523218816950FCB00971839 /* Project object */;
+}
