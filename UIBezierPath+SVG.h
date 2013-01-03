@@ -8,7 +8,7 @@
 
 @interface UIBezierPath (SVG)
 
-- (UIBezierPath *)addPathsFromSVGString:(NSString *)svgString;
+- (void)addPathFromSVGString:(NSString *)svgString;
 + (UIBezierPath *)bezierPathWithSVGString:(NSString *)svgString;
 
 @end
