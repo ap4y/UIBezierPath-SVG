@@ -338,7 +338,7 @@
 
 + (UIBezierPath *)pathWithSVGString:(NSString*)svgString {
     UIBezierPath* aPath = [UIBezierPath bezierPath];
-    if (aPath) {
+    if (aPath && svgString && svgString.length > 0) {
         NSRegularExpression* regex = [self commandRegex];
         __block NSTextCheckingResult* prevMatch = nil;
         __block NSString* prevCommand = @"";
@@ -370,12 +370,6 @@
 }
 
 + (UIBezierPath *)bezierPathWithSVGString:(NSString*)svgString {
-    if (!svgString || svgString.length <= 0) {
-        @throw [NSException exceptionWithName:NSInvalidArgumentException 
-                                       reason:[NSString stringWithFormat:@"SVG string should be nonzero length"]
-                                     userInfo:nil];
-    }
-    
     return [self pathWithSVGString:svgString];
 }
 
