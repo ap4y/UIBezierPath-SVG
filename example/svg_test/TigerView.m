@@ -8,6 +8,7 @@
 
 #import "TigerView.h"
 #import "UIBezierPath+SVG.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TigerView () {
     NSString *_tigerPathes;
@@ -83,29 +84,39 @@
 /* end of snippet */
 
 - (void)drawRect:(CGRect)rect {
-    CGContextRef aRef = UIGraphicsGetCurrentContext();
-    CGContextScaleCTM(aRef, 1.0f, 1.0f);
-    CGContextTranslateCTM(aRef, 190.0f, 150.0f);
-
-    NSRegularExpression *pathObjectsRegex = [NSRegularExpression regularExpressionWithPattern:@"\\{.*?\\}"
-                                                                                      options:0
-                                                                                        error:nil];
-    NSArray *matches = [pathObjectsRegex matchesInString:_tigerPathes
-                                                 options:0
-                                                   range:NSMakeRange(0, _tigerPathes.length)];
-    
-    for (NSTextCheckingResult *checkingResult in matches) {
-        NSString *pathObject = [_tigerPathes substringWithRange:checkingResult.range];
-        UIBezierPath *aPath = [self pathFromPathObject:pathObject];
-                
-        aPath.lineWidth = [self strokeWidthFromPathObject:pathObject];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+        CGContextRef aRef = UIGraphicsGetCurrentContext();
+        CGContextScaleCTM(aRef, 1.0f, 1.0f);
+        CGContextTranslateCTM(aRef, 190.0f, 150.0f);
         
-        [[self strokeColorFromPathObject:pathObject] setStroke];
-        [aPath stroke];
+        NSRegularExpression *pathObjectsRegex = [NSRegularExpression regularExpressionWithPattern:@"\\{.*?\\}"
+                                                                                          options:0
+                                                                                            error:nil];
+        NSArray *matches = [pathObjectsRegex matchesInString:_tigerPathes
+                                                     options:0
+                                                       range:NSMakeRange(0, _tigerPathes.length)];
         
-        [[self fillColorFromPathObject:pathObject] setFill];
-        [aPath fill];
-    }
+        for (NSTextCheckingResult *checkingResult in matches) {
+            NSString *pathObject = [_tigerPathes substringWithRange:checkingResult.range];
+            UIBezierPath *aPath = [self pathFromPathObject:pathObject];
+            
+            aPath.lineWidth = [self strokeWidthFromPathObject:pathObject];
+            
+            [[self strokeColorFromPathObject:pathObject] setStroke];
+            [aPath stroke];
+            
+            [[self fillColorFromPathObject:pathObject] setFill];
+            [aPath fill];
+            
+            UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.layer.contents = (id)[resultImage CGImage];
+            });
+        }
+        
+        UIGraphicsEndImageContext();
+    });
 }
 
 - (UIBezierPath *)pathFromPathObject:(NSString *)pathObject {
