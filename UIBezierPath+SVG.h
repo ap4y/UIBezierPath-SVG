@@ -48,6 +48,7 @@ typedef enum CType {
 
 @interface UIBezierPath (SVG)
 
-+ (UIBezierPath *)bezierPathWithSVGString:(NSString*)svgString;
+- (UIBezierPath *)addPathsFromSVGString:(NSString *)svgString;
++ (UIBezierPath *)bezierPathWithSVGString:(NSString *)svgString;
 
 @end

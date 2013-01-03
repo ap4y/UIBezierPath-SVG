@@ -336,8 +336,7 @@
     return _commandRegex;
 }
 
-+ (UIBezierPath *)pathWithSVGString:(NSString*)svgString {
-    UIBezierPath* aPath = [UIBezierPath bezierPath];
++ (UIBezierPath *)addPathWithSVGString:(NSString *)svgString toPath:(UIBezierPath *)aPath {
     if (aPath && svgString && svgString.length > 0) {
         NSRegularExpression* regex = [self commandRegex];
         __block NSTextCheckingResult* prevMatch = nil;
@@ -369,8 +368,12 @@
     return aPath;
 }
 
-+ (UIBezierPath *)bezierPathWithSVGString:(NSString*)svgString {
-    return [self pathWithSVGString:svgString];
+- (UIBezierPath *)addPathsFromSVGString:(NSString *)svgString {
+    return [UIBezierPath addPathWithSVGString:svgString toPath:self];
+}
+
++ (UIBezierPath *)bezierPathWithSVGString:(NSString *)svgString {
+    return [self addPathWithSVGString:svgString toPath:[UIBezierPath bezierPath]];
 }
 
 @end
