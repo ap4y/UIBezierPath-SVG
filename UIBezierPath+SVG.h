@@ -13,16 +13,15 @@ typedef enum CType : NSInteger {
 
 //Commands protocol
 @protocol SVGCommand <NSObject>
+@property (retain, nonatomic, readonly) NSString *prevCommand;
+
 - (void)processCommand:(NSString *)commandString
        withPrevCommand:(NSString *)prevCommand
                forPath:(UIBezierPath *)path;
 @end
 
 //Commands abstract class
-@interface SVGCommandImpl : NSObject <SVGCommand> {
-    NSString *_prevCommand;
-}
-
+@interface SVGCommandImpl : NSObject <SVGCommand>
 - (void)performCommand:(CGFloat *)params
               withType:(CommandType)type
                forPath:(UIBezierPath *)path;
@@ -57,9 +56,7 @@ typedef enum CType : NSInteger {
 @end
 
 //Commands factory
-@interface SVGCommandFactory : NSObject {
-    NSDictionary *commands;
-}
+@interface SVGCommandFactory : NSObject
 + (SVGCommandFactory *)defaultFactory;
 - (id<SVGCommand>)getCommand:(NSString *)commandLetter;
 @end

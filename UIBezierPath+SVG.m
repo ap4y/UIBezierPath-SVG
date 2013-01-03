@@ -8,6 +8,12 @@
 
 #import "UIBezierPath+SVG.h"
 
+#pragma mark ----------SVGCommandImpl----------
+
+@interface SVGCommandImpl ()
+@property (retain, nonatomic) NSString *prevCommand;
+@end
+
 @implementation SVGCommandImpl
 
 + (NSRegularExpression *)paramRegex {
@@ -45,7 +51,7 @@
 - (void)processCommand:(NSString *)commandString
        withPrevCommand:(NSString *)prevCommand
                forPath:(UIBezierPath *)path {
-    _prevCommand            = prevCommand;
+    self.prevCommand        = prevCommand;
     NSString *commandLetter = [commandString substringToIndex:1];
     CGFloat *params         = [self getCommandParameters:commandString];
     [self performCommand:params
@@ -65,6 +71,8 @@
 
 @end
 
+#pragma mark ----------SVGMoveCommand----------
+
 @implementation SVGMoveCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {        
@@ -77,6 +85,8 @@
 }
 
 @end
+
+#pragma mark ----------SVGLineToCommand----------
 
 @implementation SVGLineToCommand
 
@@ -91,6 +101,8 @@
 
 @end
 
+#pragma mark ----------SVGHorizontalLineToCommand----------
+
 @implementation SVGHorizontalLineToCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
@@ -104,6 +116,8 @@
 
 @end
 
+#pragma mark ----------SVGVerticalLineToCommand----------
+
 @implementation SVGVerticalLineToCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
@@ -116,6 +130,8 @@
 }
 
 @end
+
+#pragma mark ----------SVGCurveToCommand----------
 
 @implementation SVGCurveToCommand
 
@@ -133,21 +149,23 @@
 
 @end
 
+#pragma mark ----------SVGSmoothCurveToCommand----------
+
 @implementation SVGSmoothCurveToCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
 
     CGPoint firstControlPoint = CGPointMake(path.currentPoint.x, path.currentPoint.y);
     
-    if (_prevCommand && _prevCommand.length > 0) {
-        NSString *prevCommandType           = [_prevCommand substringToIndex:1];
+    if (self.prevCommand && self.prevCommand.length > 0) {
+        NSString *prevCommandType           = [self.prevCommand substringToIndex:1];
         NSString *prevCommandTypeLowercase  = [prevCommandType lowercaseString];
         BOOL isAbsolute                     = ![prevCommandType isEqualToString:prevCommandTypeLowercase];
         
         if ([prevCommandTypeLowercase isEqualToString:@"c"] ||
             [prevCommandTypeLowercase isEqualToString:@"s"]) {
                                             
-            CGFloat *prevParams = [self getCommandParameters:_prevCommand];
+            CGFloat *prevParams = [self getCommandParameters:self.prevCommand];
             if ([prevCommandTypeLowercase isEqualToString:@"c"]) {
                 
                 if (isAbsolute) {
@@ -187,6 +205,8 @@
 
 @end
 
+#pragma mark ----------SVGQuadraticCurveToCommand----------
+
 @implementation SVGQuadraticCurveToCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
@@ -201,19 +221,21 @@
 
 @end
 
+#pragma mark ----------SVGSmootQuadratichCurveToCommand----------
+
 @implementation SVGSmootQuadratichCurveToCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
     CGPoint firstControlPoint = CGPointMake(path.currentPoint.x, path.currentPoint.y);
     
-    if (_prevCommand && _prevCommand.length > 0) {
-        NSString *prevCommandType           = [_prevCommand substringToIndex:1];
+    if (self.prevCommand && self.prevCommand.length > 0) {
+        NSString *prevCommandType           = [self.prevCommand substringToIndex:1];
         NSString *prevCommandTypeLowercase  = [prevCommandType lowercaseString];
         BOOL isAbsolute                     = ![prevCommandType isEqualToString:prevCommandTypeLowercase];
 
         if ([prevCommandTypeLowercase isEqualToString:@"q"]) {
             
-            CGFloat *prevParams = [self getCommandParameters:_prevCommand];
+            CGFloat *prevParams = [self getCommandParameters:self.prevCommand];
                         
             if (isAbsolute) {
                 firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x, 
@@ -239,12 +261,21 @@
 
 @end
 
+#pragma mark ----------SVGClosePathCommand----------
+
 @implementation SVGClosePathCommand
 
 - (void)performCommand:(CGFloat *)params withType:(CommandType)type forPath:(UIBezierPath *)path {
     [path closePath];
 }
 
+@end
+
+#pragma mark ----------SVGCommandFactory----------
+
+@interface SVGCommandFactory () {
+    NSDictionary *commands;
+}
 @end
 
 @implementation SVGCommandFactory
@@ -302,6 +333,8 @@
 }
 
 @end
+
+#pragma mark ----------UIBezierPath (SVG)----------
 
 @implementation UIBezierPath (SVG)
 
