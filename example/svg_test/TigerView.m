@@ -84,56 +84,77 @@
 
 - (void)drawRect:(CGRect)rect {
     CGContextRef aRef = UIGraphicsGetCurrentContext();
-    CGContextScaleCTM(aRef, 1.0, 1.0);
-    CGContextTranslateCTM(aRef, 190.0, 150.0);
+    CGContextScaleCTM(aRef, 1.0f, 1.0f);
+    CGContextTranslateCTM(aRef, 190.0f, 150.0f);
 
-    NSRegularExpression *pathesRegex = [NSRegularExpression regularExpressionWithPattern:@"\\{.*?\\}"
-                                                                                 options:0
-                                                                                   error:nil];
-    NSArray *matches = [pathesRegex matchesInString:_tigerPathes
-                                            options:0
-                                              range:NSMakeRange(0, _tigerPathes.length)];
+    NSRegularExpression *pathObjectsRegex = [NSRegularExpression regularExpressionWithPattern:@"\\{.*?\\}"
+                                                                                      options:0
+                                                                                        error:nil];
+    NSArray *matches = [pathObjectsRegex matchesInString:_tigerPathes
+                                                 options:0
+                                                   range:NSMakeRange(0, _tigerPathes.length)];
     
-    for (NSTextCheckingResult *result in matches) {
-        NSString *pathObject = [_tigerPathes substringWithRange:result.range];
-        NSString *path = [pathObject substringWithRange:[pathObject rangeOfString:@"path:\".*?\""
-                                                                          options:NSRegularExpressionSearch]];
-        path = [path stringByReplacingOccurrencesOfString:@"path:\"" withString:@""];
-        path = [path stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-        UIBezierPath *aPath = [UIBezierPath bezierPathWithSVGString:path];
+    for (NSTextCheckingResult *checkingResult in matches) {
+        NSString *pathObject = [_tigerPathes substringWithRange:checkingResult.range];
+        UIBezierPath *aPath = [self pathFromPathObject:pathObject];
                 
-        NSRange stroke_range = [pathObject rangeOfString:@"\"stroke-width\":\".*?\""
-                                                 options:NSRegularExpressionSearch];
+        aPath.lineWidth = [self strokeWidthFromPathObject:pathObject];
         
-        if (stroke_range.location != NSNotFound) {
-            NSString *stroke_width = [pathObject substringWithRange:stroke_range];
-            stroke_width = [stroke_width stringByReplacingOccurrencesOfString:@"\"stroke-width\":\"" withString:@""];
-            stroke_width = [stroke_width stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-            aPath.lineWidth = [stroke_width floatValue];
-        }
+        [[self strokeColorFromPathObject:pathObject] setStroke];
+        [aPath stroke];
         
-        NSString *stroke = [pathObject substringWithRange:[pathObject rangeOfString:@"stroke:\".*?\""
-                                                                            options:NSRegularExpressionSearch]];
-        stroke = [stroke stringByReplacingOccurrencesOfString:@"stroke:\"" withString:@""];
-        stroke = [stroke stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-        
-        if (![stroke isEqualToString:@"none"]) {
-            UIColor *strokeColor = [TigerView colorWithHexString:stroke];
-            [strokeColor setStroke];
-            [aPath stroke];
-        }
-        
-        NSString *fill = [pathObject substringWithRange:[pathObject rangeOfString:@"fill:\".*?\""
-                                                                          options:NSRegularExpressionSearch]];
-        fill = [fill stringByReplacingOccurrencesOfString:@"fill:\"" withString:@""];
-        fill = [fill stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-
-        if (![fill isEqualToString:@"none"]) {
-            UIColor *fillColor = [TigerView colorWithHexString:fill];
-            [fillColor setFill];
-            [aPath fill];
-        }        
+        [[self fillColorFromPathObject:pathObject] setFill];
+        [aPath fill];
     }
+}
+
+- (UIBezierPath *)pathFromPathObject:(NSString *)pathObject {
+    NSString *path = [pathObject substringWithRange:[pathObject rangeOfString:@"path:\".*?\""
+                                                                      options:NSRegularExpressionSearch]];
+    path = [path stringByReplacingOccurrencesOfString:@"path:\"" withString:@""];
+    path = [path stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    return [UIBezierPath bezierPathWithSVGString:path];
+}
+
+- (CGFloat)strokeWidthFromPathObject:(NSString *)pathObject {
+    
+    NSRange stroke_range = [pathObject rangeOfString:@"\"stroke-width\":\".*?\""
+                                             options:NSRegularExpressionSearch];
+    
+    if (stroke_range.location != NSNotFound) {
+        NSString *stroke_width = [pathObject substringWithRange:stroke_range];
+        stroke_width = [stroke_width stringByReplacingOccurrencesOfString:@"\"stroke-width\":\"" withString:@""];
+        stroke_width = [stroke_width stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        return [stroke_width floatValue];
+    }
+    
+    return 1.0f;
+}
+
+- (UIColor *)strokeColorFromPathObject:(NSString *)pathObject {
+    NSString *stroke = [pathObject substringWithRange:[pathObject rangeOfString:@"stroke:\".*?\""
+                                                                        options:NSRegularExpressionSearch]];
+    stroke = [stroke stringByReplacingOccurrencesOfString:@"stroke:\"" withString:@""];
+    stroke = [stroke stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    
+    if (![stroke isEqualToString:@"none"]) {
+        return [TigerView colorWithHexString:stroke];
+    }
+    
+    return [UIColor whiteColor];
+}
+
+- (UIColor *)fillColorFromPathObject:(NSString *)pathObject {
+    NSString *fill = [pathObject substringWithRange:[pathObject rangeOfString:@"fill:\".*?\""
+                                                                      options:NSRegularExpressionSearch]];
+    fill = [fill stringByReplacingOccurrencesOfString:@"fill:\"" withString:@""];
+    fill = [fill stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    
+    if (![fill isEqualToString:@"none"]) {
+        return [TigerView colorWithHexString:fill];
+    }
+    
+    return [UIColor whiteColor];
 }
 
 @end
