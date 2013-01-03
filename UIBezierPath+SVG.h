@@ -6,44 +6,62 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-typedef enum CType { 
+typedef enum CType : NSInteger {
     Absolute, 
     Relative
 } CommandType;
 
 //Commands protocol
 @protocol SVGCommand <NSObject>
-- (void)processCommand:(NSString*)commandString
-       withPrevCommand:(NSString*)prevCommand
-               forPath:(UIBezierPath*)path;
+- (void)processCommand:(NSString *)commandString
+       withPrevCommand:(NSString *)prevCommand
+               forPath:(UIBezierPath *)path;
 @end
 
 //Commands abstract class
 @interface SVGCommandImpl : NSObject <SVGCommand> {
-    NSString* _prevCommand;
+    NSString *_prevCommand;
 }
-@end
-@interface SVGCommandImpl (private)
-- (void)performCommand:(CGFloat*)params
+
+- (void)performCommand:(CGFloat *)params
               withType:(CommandType)type
-               forPath:(UIBezierPath*)path;
+               forPath:(UIBezierPath *)path;
 @end
+
 //Commands concrete implementation
-@interface SVGMoveCommand : SVGCommandImpl @end
-@interface SVGLineToCommand : SVGCommandImpl @end
-@interface SVGHorizontalLineToCommand : SVGCommandImpl @end
-@interface SVGVerticalLineToCommand : SVGCommandImpl @end
-@interface SVGCurveToCommand : SVGCommandImpl @end
-@interface SVGSmoothCurveToCommand : SVGCommandImpl @end
-@interface SVGQuadraticCurveToCommand : SVGCommandImpl @end
-@interface SVGSmootQuadratichCurveToCommand : SVGCommandImpl @end
-@interface SVGClosePathCommand : SVGCommandImpl @end
+@interface SVGMoveCommand : SVGCommandImpl
+@end
+
+@interface SVGLineToCommand : SVGCommandImpl
+@end
+
+@interface SVGHorizontalLineToCommand : SVGCommandImpl
+@end
+
+@interface SVGVerticalLineToCommand : SVGCommandImpl
+@end
+
+@interface SVGCurveToCommand : SVGCommandImpl
+@end
+
+@interface SVGSmoothCurveToCommand : SVGCommandImpl
+@end
+
+@interface SVGQuadraticCurveToCommand : SVGCommandImpl
+@end
+
+@interface SVGSmootQuadratichCurveToCommand : SVGCommandImpl
+@end
+
+@interface SVGClosePathCommand : SVGCommandImpl
+@end
+
 //Commands factory
 @interface SVGCommandFactory : NSObject {
-    NSDictionary* commands;
+    NSDictionary *commands;
 }
-+ (SVGCommandFactory*)defaultFactory;
-- (id<SVGCommand>)getCommand:(NSString*)commandLetter;
++ (SVGCommandFactory *)defaultFactory;
+- (id<SVGCommand>)getCommand:(NSString *)commandLetter;
 @end
 
 @interface UIBezierPath (SVG)
