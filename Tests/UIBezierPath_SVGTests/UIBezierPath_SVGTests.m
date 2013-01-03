@@ -8,6 +8,9 @@
 
 #import "UIBezierPath_SVGTests.h"
 #import "UIBezierPath+SVG.h"
+#import "OCMock.h"
+
+
 
 @implementation UIBezierPath_SVGTests
 
