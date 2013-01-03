@@ -8,10 +8,25 @@
 
 #import "UIBezierPath+SVG.h"
 
-#pragma mark ----------SVGCommandImpl----------
+#pragma mark ----------Common----------
+typedef enum CType : NSInteger {
+    Absolute,
+    Relative
+} CommandType;
 
-@interface SVGCommandImpl ()
+@protocol SVGCommand <NSObject>
+- (void)processCommand:(NSString *)commandString
+       withPrevCommand:(NSString *)prevCommand
+               forPath:(UIBezierPath *)path;
+@end
+
+#pragma mark ----------SVGCommandImpl----------
+@interface SVGCommandImpl : NSObject <SVGCommand>
 @property (retain, nonatomic) NSString *prevCommand;
+
+- (void)performCommand:(CGFloat *)params
+              withType:(CommandType)type
+               forPath:(UIBezierPath *)path;
 @end
 
 @implementation SVGCommandImpl
@@ -72,6 +87,7 @@
 @end
 
 #pragma mark ----------SVGMoveCommand----------
+@interface SVGMoveCommand : SVGCommandImpl @end
 
 @implementation SVGMoveCommand
 
@@ -87,6 +103,7 @@
 @end
 
 #pragma mark ----------SVGLineToCommand----------
+@interface SVGLineToCommand : SVGCommandImpl @end
 
 @implementation SVGLineToCommand
 
@@ -102,6 +119,7 @@
 @end
 
 #pragma mark ----------SVGHorizontalLineToCommand----------
+@interface SVGHorizontalLineToCommand : SVGCommandImpl @end
 
 @implementation SVGHorizontalLineToCommand
 
@@ -117,6 +135,7 @@
 @end
 
 #pragma mark ----------SVGVerticalLineToCommand----------
+@interface SVGVerticalLineToCommand : SVGCommandImpl @end
 
 @implementation SVGVerticalLineToCommand
 
@@ -132,6 +151,7 @@
 @end
 
 #pragma mark ----------SVGCurveToCommand----------
+@interface SVGCurveToCommand : SVGCommandImpl @end
 
 @implementation SVGCurveToCommand
 
@@ -150,6 +170,7 @@
 @end
 
 #pragma mark ----------SVGSmoothCurveToCommand----------
+@interface SVGSmoothCurveToCommand : SVGCommandImpl @end
 
 @implementation SVGSmoothCurveToCommand
 
@@ -206,6 +227,7 @@
 @end
 
 #pragma mark ----------SVGQuadraticCurveToCommand----------
+@interface SVGQuadraticCurveToCommand : SVGCommandImpl @end
 
 @implementation SVGQuadraticCurveToCommand
 
@@ -222,6 +244,7 @@
 @end
 
 #pragma mark ----------SVGSmootQuadratichCurveToCommand----------
+@interface SVGSmootQuadratichCurveToCommand : SVGCommandImpl @end
 
 @implementation SVGSmootQuadratichCurveToCommand
 
@@ -262,6 +285,7 @@
 @end
 
 #pragma mark ----------SVGClosePathCommand----------
+@interface SVGClosePathCommand : SVGCommandImpl @end
 
 @implementation SVGClosePathCommand
 
@@ -273,9 +297,11 @@
 
 #pragma mark ----------SVGCommandFactory----------
 
-@interface SVGCommandFactory () {
+@interface SVGCommandFactory : NSObject {
     NSDictionary *commands;
 }
++ (SVGCommandFactory *)defaultFactory;
+- (id<SVGCommand>)getCommand:(NSString *)commandLetter;
 @end
 
 @implementation SVGCommandFactory
