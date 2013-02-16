@@ -243,10 +243,10 @@ typedef enum : NSInteger {
 
 @end
 
-#pragma mark ----------SVGSmootQuadratichCurveToCommand----------
-@interface SVGSmootQuadratichCurveToCommand : SVGCommandImpl @end
+#pragma mark ----------SVGSmoothQuadraticCurveToCommand----------
+@interface SVGSmoothQuadraticCurveToCommand : SVGCommandImpl @end
 
-@implementation SVGSmootQuadratichCurveToCommand
+@implementation SVGSmoothQuadraticCurveToCommand
 
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
     CGPoint firstControlPoint = CGPointMake(path.currentPoint.x, path.currentPoint.y);
@@ -326,7 +326,7 @@ typedef enum : NSInteger {
         SVGCurveToCommand *curveTo                                  = [[SVGCurveToCommand alloc] init];
         SVGSmoothCurveToCommand *smoothCurveTo                      = [[SVGSmoothCurveToCommand alloc] init];
         SVGQuadraticCurveToCommand *quadraticCurveTo                = [[SVGQuadraticCurveToCommand alloc] init];
-        SVGSmootQuadratichCurveToCommand *smoothQuadraticCurveTo    = [[SVGSmootQuadratichCurveToCommand alloc] init];
+        SVGSmoothQuadraticCurveToCommand *smoothQuadraticCurveTo    = [[SVGSmoothQuadraticCurveToCommand alloc] init];
         SVGClosePathCommand *closePath                              = [[SVGClosePathCommand alloc] init];
 
         commands = [[NSDictionary alloc] initWithObjectsAndKeys:
