@@ -8,6 +8,8 @@
 
 #import "UIBezierPath+SVG.h"
 
+#define PRINT_DRAWING_INSTRUCTIONS 1
+
 #pragma mark ----------Common----------
 typedef enum : NSInteger {
     Absolute,
@@ -91,13 +93,19 @@ typedef enum : NSInteger {
 
 @implementation SVGMoveCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {        
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
     if (type == Absolute) {
         [path moveToPoint:CGPointMake(params[0], params[1])];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path moveToPoint:CGPointMake(%f, %f)];\n", params[0], params[1]);
+        }
     } else {
         [path moveToPoint:CGPointMake(path.currentPoint.x + params[0], 
                                       path.currentPoint.y + params[1])];
-    }  
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path moveToPoint:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f)];\n", params[0], params[1]);
+        }
+    }
 }
 
 @end
@@ -110,10 +118,16 @@ typedef enum : NSInteger {
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
     if (type == Absolute) {
         [path addLineToPoint:CGPointMake(params[0], params[1])];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addLineToPoint:CGPointMake(%f, %f)];\n", params[0], params[1]);
+        }
     } else {
         [path addLineToPoint:CGPointMake(path.currentPoint.x + params[0], 
                                          path.currentPoint.y + params[1])];
-    }  
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addLineToPoint:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f)];\n", params[0], params[1]);
+        }
+    }
 }
 
 @end
@@ -126,10 +140,16 @@ typedef enum : NSInteger {
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
     if (type == Absolute) {
         [path addLineToPoint:CGPointMake(params[0], path.currentPoint.y)];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addLineToPoint:CGPointMake(%f, path.currentPoint.y)];\n", params[0]);
+        }
     } else {
         [path addLineToPoint:CGPointMake(path.currentPoint.x + params[0], 
                                          path.currentPoint.y)];
-    }  
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addLineToPoint:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y)];\n", params[0]);
+        }
+    }
 }
 
 @end
@@ -142,10 +162,16 @@ typedef enum : NSInteger {
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
     if (type == Absolute) {
         [path addLineToPoint:CGPointMake(path.currentPoint.x, params[0])];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addLineToPoint:CGPointMake(path.currentPoint.x, %f)];\n", params[0]);
+        }
     } else {
         [path addLineToPoint:CGPointMake(path.currentPoint.x, 
                                          path.currentPoint.y + params[0])];
-    }  
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addLineToPoint:CGPointMake(path.currentPoint.x, path.currentPoint.y + %f)];\n", params[0]);
+        }
+    }
 }
 
 @end
@@ -160,11 +186,17 @@ typedef enum : NSInteger {
         [path addCurveToPoint:CGPointMake(params[4], params[5]) 
                 controlPoint1:CGPointMake(params[0], params[1]) 
                 controlPoint2:CGPointMake(params[2], params[3])];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addCurveToPoint:CGPointMake(%f, %f) controlPoint1:CGPointMake(%f, %f) controlPoint2:CGPointMake(%f, %f)];\n", params[4], params[5], params[0], params[1], params[2], params[3]);
+        }
     } else {
         [path addCurveToPoint:CGPointMake(path.currentPoint.x + params[4], path.currentPoint.y + params[5]) 
                 controlPoint1:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1]) 
                 controlPoint2:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3])];
-    }  
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addCurveToPoint:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f) controlPoint1:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f) controlPoint2:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f)];\n", params[4], params[5], params[0], params[1], params[2], params[3]);
+        }
+    }
 }
 
 @end
@@ -217,10 +249,16 @@ typedef enum : NSInteger {
         [path addCurveToPoint:CGPointMake(params[2], params[3]) 
                 controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y) 
                 controlPoint2:CGPointMake(params[0], params[1])];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addCurveToPoint:CGPointMake(%f, %f) controlPoint1:CGPointMake(%f, %f) controlPoint2:CGPointMake(%f, %f)];\n", params[2], params[3], firstControlPoint.x, firstControlPoint.y, params[0], params[1]);
+        }
     } else {
         [path addCurveToPoint:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3]) 
                 controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y) 
                 controlPoint2:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addCurveToPoint:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f) controlPoint1:CGPointMake(%f, %f) controlPoint2:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f)];\n", params[2], params[3], firstControlPoint.x, firstControlPoint.y, params[0], params[1]);
+        }
     }
 }
 
@@ -235,9 +273,15 @@ typedef enum : NSInteger {
     if (type == Absolute) {
         [path addQuadCurveToPoint:CGPointMake(params[2], params[3])
                      controlPoint:CGPointMake(params[0], params[1])];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addQuadCurveToPoint:CGPointMake(%f, %f) controlPoint:CGPointMake(%f, %f)];\n", params[2], params[3], params[0], params[1]);
+        }
     } else {
         [path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3]) 
                      controlPoint:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f) controlPoint:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f)];\n", params[2], params[3], params[0], params[1]);
+        }
     }
 }
 
@@ -276,9 +320,15 @@ typedef enum : NSInteger {
     if (type == Absolute) {
         [path addQuadCurveToPoint:CGPointMake(params[0], params[1]) 
                      controlPoint:CGPointMake(firstControlPoint.x, firstControlPoint.y)];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addQuadCurveToPoint:CGPointMake(%f, %f) controlPoint:CGPointMake(%f, %f)];\n", params[0], params[1], firstControlPoint.x, firstControlPoint.y);
+        }
     } else {
         [path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1]) 
                      controlPoint:CGPointMake(firstControlPoint.x, firstControlPoint.y)];
+        if (PRINT_DRAWING_INSTRUCTIONS) {
+            printf("[path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + %f, path.currentPoint.y + %f) controlPoint:CGPointMake(%f, %f)];\n", params[0], params[1], firstControlPoint.x, firstControlPoint.y);
+        }
     }
 }
 
@@ -291,6 +341,9 @@ typedef enum : NSInteger {
 
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
     [path closePath];
+    if (PRINT_DRAWING_INSTRUCTIONS) {
+        printf("[path closePath];\n");
+    }
 }
 
 @end
@@ -398,6 +451,9 @@ typedef enum : NSInteger {
 }
 
 + (UIBezierPath *)addPathWithSVGString:(NSString *)svgString toPath:(UIBezierPath *)aPath {
+    if (PRINT_DRAWING_INSTRUCTIONS) {
+        printf("// SVG shape\n");
+    }
     if (aPath && svgString && svgString.length > 0) {
         NSRegularExpression *regex              = [self commandRegex];
         __block NSTextCheckingResult *prevMatch = nil;
