@@ -21,7 +21,6 @@
 		_svgString = svgString;
 		_scale = scale;
 		_color = color;
-//		[self setBackgroundColor:[NSColor whiteColor]];
 	}
 	return self;
 }
@@ -45,7 +44,6 @@
 
 	CGContextRef context = CGBitmapContextCreate(NULL, rect.size.width * _scale, rect.size.height * _scale, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast); //fixing this warning with a proper CGBitmapInfo enum causes the build to crash - Perhaps I did something wrong?
 	
-//	CGContextScaleCTM(context, _scale, _scale);
 	
 	[svgPath fill];
 }
