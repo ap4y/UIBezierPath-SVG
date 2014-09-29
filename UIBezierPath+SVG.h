@@ -15,6 +15,9 @@
 #define SKUBezierPath NSBezierPath
 #define addLineToPointSKU lineToPoint
 #define addCurveToPointSKU curveToPoint
+#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+
 #endif
 
 
