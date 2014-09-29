@@ -13,6 +13,8 @@ UIBezierPath class category with SVG parser
 
 Example project included with sample SVG icons (from Raphael free icons collection).
 
+(It was renamed "SKUBezierPath" to ease cross platform development in SpriteKit. However, SpriteKit is not a requirement - NSBezierPath or UIBezierPath will still work, depending on the platform you're developing for)
+
 Reference
 -------
 
