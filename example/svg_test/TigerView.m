@@ -24,16 +24,11 @@
         _tigerPathes = [NSString stringWithContentsOfFile:filePath
                                                  encoding:NSUTF8StringEncoding
                                                     error:nil];
-        [_tigerPathes retain];
         self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
 
-- (void)dealloc {
-    [_tigerPathes release];
-    [super dealloc];
-}
 
 /* snippet from http://stackoverflow.com/questions/1560081/how-can-i-create-a-uicolor-from-a-hex-string */
 + (UIColor *)colorWithHexString:(NSString *)hexString {

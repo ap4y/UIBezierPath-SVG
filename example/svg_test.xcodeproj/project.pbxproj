@@ -61,6 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334B386B19D9CD6100256AAD /* iOS Classes */ = {
+			isa = PBXGroup;
+			children = (
+				95B648CF1574D27A0070B87C /* AppDelegate.h */,
+				95B648D01574D27A0070B87C /* AppDelegate.m */,
+				95B648D21574D27A0070B87C /* ViewController.h */,
+				95B648D31574D27A0070B87C /* ViewController.m */,
+				95B648D51574D27A0070B87C /* ViewController_iPhone.xib */,
+				95B648D81574D27A0070B87C /* ViewController_iPad.xib */,
+				95B648E01574D2970070B87C /* PathView.h */,
+				95B648E11574D2970070B87C /* PathView.m */,
+				95EE6A0615D13D1B001AD694 /* TigerView.h */,
+				95EE6A0715D13D1B001AD694 /* TigerView.m */,
+			);
+			name = "iOS Classes";
+			sourceTree = "<group>";
+		};
 		95B648B11574D27A0070B87C = {
 			isa = PBXGroup;
 			children = (
@@ -91,18 +108,9 @@
 		95B648C61574D27A0070B87C /* svg_test */ = {
 			isa = PBXGroup;
 			children = (
-				95B648CF1574D27A0070B87C /* AppDelegate.h */,
-				95B648D01574D27A0070B87C /* AppDelegate.m */,
-				95B648D21574D27A0070B87C /* ViewController.h */,
-				95B648D31574D27A0070B87C /* ViewController.m */,
-				95B648D51574D27A0070B87C /* ViewController_iPhone.xib */,
-				95B648D81574D27A0070B87C /* ViewController_iPad.xib */,
-				95B648E01574D2970070B87C /* PathView.h */,
-				95B648E11574D2970070B87C /* PathView.m */,
+				334B386B19D9CD6100256AAD /* iOS Classes */,
 				95A5CF6A15750D0E00C7CF8D /* UIBezierPath+SVG.h */,
 				95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */,
-				95EE6A0615D13D1B001AD694 /* TigerView.h */,
-				95EE6A0715D13D1B001AD694 /* TigerView.m */,
 				95B648C71574D27A0070B87C /* Supporting Files */,
 			);
 			path = svg_test;
@@ -272,6 +280,7 @@
 		95B648DE1574D27A0070B87C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "svg_test/svg_test-Prefix.pch";
 				INFOPLIST_FILE = "svg_test/svg_test-Info.plist";
@@ -283,6 +292,7 @@
 		95B648DF1574D27A0070B87C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "svg_test/svg_test-Prefix.pch";
 				INFOPLIST_FILE = "svg_test/svg_test-Info.plist";
