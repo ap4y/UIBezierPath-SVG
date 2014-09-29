@@ -95,13 +95,11 @@ typedef enum : NSInteger {
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
 	if (type == Absolute) {
 		[path moveToPoint:CGPointMake(params[0], params[1])];
-		//		NSLog(@"move: %f %f",params[0], params[1] );
 	} else {
 		[path moveToPoint:CGPointMake(path.currentPoint.x + params[0],
 									  path.currentPoint.y + params[1])];
 		
 		
-		//		NSLog(@"move: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	}
 }
@@ -116,12 +114,10 @@ typedef enum : NSInteger {
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
 	if (type == Absolute) {
 		[path addLineToPointSKU:CGPointMake(params[0], params[1])];
-		//		NSLog(@"line: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	} else {
 		[path addLineToPointSKU:CGPointMake(path.currentPoint.x + params[0],
 										 path.currentPoint.y + params[1])];
-		//		NSLog(@"line: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	}
 }
@@ -136,12 +132,10 @@ typedef enum : NSInteger {
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
 	if (type == Absolute) {
 		[path addLineToPointSKU:CGPointMake(params[0], path.currentPoint.y)];
-		//		NSLog(@"line: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	} else {
 		[path addLineToPointSKU:CGPointMake(path.currentPoint.x + params[0],
 										 path.currentPoint.y)];
-		//		NSLog(@"line: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	}
 }
@@ -156,12 +150,10 @@ typedef enum : NSInteger {
 - (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
 	if (type == Absolute) {
 		[path addLineToPointSKU:CGPointMake(path.currentPoint.x, params[0])];
-		//		NSLog(@"line: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	} else {
 		[path addLineToPointSKU:CGPointMake(path.currentPoint.x,
 										 path.currentPoint.y + params[0])];
-		//		NSLog(@"line: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	}
 }
@@ -179,13 +171,11 @@ typedef enum : NSInteger {
 				   controlPoint1:CGPointMake(params[0], params[1])
 				   controlPoint2:CGPointMake(params[2], params[3])];
 		
-		//		NSLog(@"curveTo: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	} else {
 		[path addCurveToPointSKU:CGPointMake(path.currentPoint.x + params[4], path.currentPoint.y + params[5])
 				   controlPoint1:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])
 				   controlPoint2:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3])];
-		//		NSLog(@"curveTo: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	}
 }
@@ -240,13 +230,11 @@ typedef enum : NSInteger {
 		[path addCurveToPointSKU:CGPointMake(params[2], params[3])
 				   controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y)
 				   controlPoint2:CGPointMake(params[0], params[1])];
-		//		NSLog(@"curveTo: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	} else {
 		[path addCurveToPointSKU:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3])
 				   controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y)
 				   controlPoint2:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])];
-		//		NSLog(@"curveTo: %f %f",path.currentPoint.x, path.currentPoint.y );
 		
 	}
 	
@@ -431,17 +419,12 @@ typedef enum : NSInteger {
 					NSUInteger length	   = match.range.location - prevMatch.range.location;
 					NSString *commandString = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, length)];
 					
-					//					NSLog(@"commandString: %@", commandString);
 					
 					[self processCommandString:commandString withPrevCommandString:prevCommand forPath:aPath];
-					//					[prevCommand release];
 					prevCommand = nil;
-					//					[prevMatch release];
 					prevMatch = nil;
-					//					prevCommand = [commandString retain];
 					prevCommand = commandString;
 				}
-				//				prevMatch = [match retain];
 				prevMatch = match;
 			}
 			
@@ -450,11 +433,7 @@ typedef enum : NSInteger {
 		
 		NSString *result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, svgString.length - prevMatch.range.location)];
 		
-		//		NSLog(@"before");
 		[self processCommandString:result withPrevCommandString:prevCommand forPath:aPath];
-		//		NSLog(@"after");
-		//		[prevMatch release];
-		//		[prevCommand release];
 	}
 	return aPath;
 }
@@ -492,7 +471,6 @@ typedef enum : NSInteger {
 	[self curveToPoint:cp3 controlPoint1:cp1 controlPoint2:cp2];
 	
 	
-	//	NSLog(@"quad p1: %f %f p2: %f %f p3: %f %f", qp0.x, qp0.y, qp1.x, qp1.y, qp2.x, qp2.y);
 }
 
 

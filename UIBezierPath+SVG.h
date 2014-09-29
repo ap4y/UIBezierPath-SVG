@@ -5,6 +5,7 @@
 //  Created by Arthur Evstifeev on 5/29/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+//	Modified by Michael Redig 9/28/14
 
 #if TARGET_OS_IPHONE
 #define SKUBezierPath UIBezierPath
