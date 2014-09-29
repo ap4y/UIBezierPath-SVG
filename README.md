@@ -5,9 +5,11 @@ UIBezierPath class category with SVG parser
 
 [<img src="https://raw.github.com/ap4y/UIBezierPath-SVG/master/photo.png" width="420px"></img>](https://raw.github.com/ap4y/UIBezierPath-SVG/master/photo.png)
 
+[<img src="https://raw.github.com/mredig/UIBezierPath-SVG/master/macSS.png"></img>](https://raw.github.com/mredig/UIBezierPath-SVG/master/macSS.png)
+
 ## Usage ##
 
-    + (UIBezierPath *)bezierPathWithSVGString:(NSString*)svgString;
+    + (SKUBezierPath *)bezierPathWithSVGString:(NSString*)svgString;
 
 Example project included with sample SVG icons (from Raphael free icons collection).
 
