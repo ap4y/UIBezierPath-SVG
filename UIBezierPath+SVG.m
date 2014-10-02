@@ -46,8 +46,8 @@ typedef enum : NSInteger {
 - (CGFloat *)getCommandParameters:(NSString *)commandString {
     NSRegularExpression *regex  = [SVGCommandImpl paramRegex];
     NSArray *matches            = [regex matchesInString:commandString
-                                        options:0
-                                          range:NSMakeRange(0, [commandString length])];
+												 options:0
+												   range:NSMakeRange(0, [commandString length])];
     CGFloat *result             = (CGFloat *)malloc(matches.count * sizeof(CGFloat));
     
     for (int i = 0; i < matches.count; i++) {
