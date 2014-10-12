@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		334B387519D9CE5A00256AAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B387419D9CE5A00256AAD /* main.m */; };
+		334B387819D9CE5A00256AAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B387719D9CE5A00256AAD /* AppDelegate.m */; };
+		334B387A19D9CE5A00256AAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334B387919D9CE5A00256AAD /* Images.xcassets */; };
+		334B387D19D9CE5A00256AAD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334B387B19D9CE5A00256AAD /* MainMenu.xib */; };
+		334B389019D9CE7D00256AAD /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */; };
+		334B389619D9D07100256AAD /* MacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B389519D9D07100256AAD /* MacViewController.m */; };
+		334B389919D9D3AC00256AAD /* NSBezierPath+CGPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B389819D9D3AC00256AAD /* NSBezierPath+CGPath.m */; };
+		334B389C19D9DB0200256AAD /* MacPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B389B19D9DB0200256AAD /* MacPathView.m */; };
 		95A5CF6C15750D3500C7CF8D /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */; };
 		95B648C11574D27A0070B87C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B648C01574D27A0070B87C /* UIKit.framework */; };
 		95B648C31574D27A0070B87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B648C21574D27A0070B87C /* Foundation.framework */; };
@@ -24,6 +32,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		334B387019D9CE5A00256AAD /* svg_Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = svg_Mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		334B387319D9CE5A00256AAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		334B387419D9CE5A00256AAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		334B387619D9CE5A00256AAD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		334B387719D9CE5A00256AAD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		334B387919D9CE5A00256AAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		334B387C19D9CE5A00256AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		334B389419D9D07100256AAD /* MacViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacViewController.h; sourceTree = "<group>"; };
+		334B389519D9D07100256AAD /* MacViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacViewController.m; sourceTree = "<group>"; };
+		334B389719D9D3AC00256AAD /* NSBezierPath+CGPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+CGPath.h"; sourceTree = "<group>"; };
+		334B389819D9D3AC00256AAD /* NSBezierPath+CGPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+CGPath.m"; sourceTree = "<group>"; };
+		334B389A19D9DB0200256AAD /* MacPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacPathView.h; sourceTree = "<group>"; };
+		334B389B19D9DB0200256AAD /* MacPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacPathView.m; sourceTree = "<group>"; };
 		95A5CF6A15750D0E00C7CF8D /* UIBezierPath+SVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIBezierPath+SVG.h"; path = "../../UIBezierPath+SVG.h"; sourceTree = "<group>"; };
 		95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+SVG.m"; path = "../../UIBezierPath+SVG.m"; sourceTree = "<group>"; };
 		95B648BC1574D27A0070B87C /* svg_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = svg_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		334B386D19D9CE5A00256AAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95B648B91574D27A0070B87C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -61,6 +89,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334B386B19D9CD6100256AAD /* iOS Classes */ = {
+			isa = PBXGroup;
+			children = (
+				95B648CF1574D27A0070B87C /* AppDelegate.h */,
+				95B648D01574D27A0070B87C /* AppDelegate.m */,
+				95B648D21574D27A0070B87C /* ViewController.h */,
+				95B648D31574D27A0070B87C /* ViewController.m */,
+				95B648E01574D2970070B87C /* PathView.h */,
+				95B648E11574D2970070B87C /* PathView.m */,
+				95B648D51574D27A0070B87C /* ViewController_iPhone.xib */,
+				95B648D81574D27A0070B87C /* ViewController_iPad.xib */,
+				95EE6A0615D13D1B001AD694 /* TigerView.h */,
+				95EE6A0715D13D1B001AD694 /* TigerView.m */,
+			);
+			name = "iOS Classes";
+			sourceTree = "<group>";
+		};
+		334B387119D9CE5A00256AAD /* svg_Mac */ = {
+			isa = PBXGroup;
+			children = (
+				334B387619D9CE5A00256AAD /* AppDelegate.h */,
+				334B387719D9CE5A00256AAD /* AppDelegate.m */,
+				334B387919D9CE5A00256AAD /* Images.xcassets */,
+				334B389719D9D3AC00256AAD /* NSBezierPath+CGPath.h */,
+				334B389819D9D3AC00256AAD /* NSBezierPath+CGPath.m */,
+				334B389419D9D07100256AAD /* MacViewController.h */,
+				334B389519D9D07100256AAD /* MacViewController.m */,
+				334B389A19D9DB0200256AAD /* MacPathView.h */,
+				334B389B19D9DB0200256AAD /* MacPathView.m */,
+				334B387B19D9CE5A00256AAD /* MainMenu.xib */,
+				334B387219D9CE5A00256AAD /* Supporting Files */,
+			);
+			name = svg_Mac;
+			path = ../svg_Mac;
+			sourceTree = "<group>";
+		};
+		334B387219D9CE5A00256AAD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				334B387319D9CE5A00256AAD /* Info.plist */,
+				334B387419D9CE5A00256AAD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		95B648B11574D27A0070B87C = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				95B648BC1574D27A0070B87C /* svg_test.app */,
+				334B387019D9CE5A00256AAD /* svg_Mac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,18 +165,10 @@
 		95B648C61574D27A0070B87C /* svg_test */ = {
 			isa = PBXGroup;
 			children = (
-				95B648CF1574D27A0070B87C /* AppDelegate.h */,
-				95B648D01574D27A0070B87C /* AppDelegate.m */,
-				95B648D21574D27A0070B87C /* ViewController.h */,
-				95B648D31574D27A0070B87C /* ViewController.m */,
-				95B648D51574D27A0070B87C /* ViewController_iPhone.xib */,
-				95B648D81574D27A0070B87C /* ViewController_iPad.xib */,
-				95B648E01574D2970070B87C /* PathView.h */,
-				95B648E11574D2970070B87C /* PathView.m */,
+				334B387119D9CE5A00256AAD /* svg_Mac */,
+				334B386B19D9CD6100256AAD /* iOS Classes */,
 				95A5CF6A15750D0E00C7CF8D /* UIBezierPath+SVG.h */,
 				95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */,
-				95EE6A0615D13D1B001AD694 /* TigerView.h */,
-				95EE6A0715D13D1B001AD694 /* TigerView.m */,
 				95B648C71574D27A0070B87C /* Supporting Files */,
 			);
 			path = svg_test;
@@ -123,6 +189,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		334B386F19D9CE5A00256AAD /* svg_Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 334B388A19D9CE5A00256AAD /* Build configuration list for PBXNativeTarget "svg_Mac" */;
+			buildPhases = (
+				334B386C19D9CE5A00256AAD /* Sources */,
+				334B386D19D9CE5A00256AAD /* Frameworks */,
+				334B386E19D9CE5A00256AAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = svg_Mac;
+			productName = svg_Mac;
+			productReference = 334B387019D9CE5A00256AAD /* svg_Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		95B648BB1574D27A0070B87C /* svg_test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95B648DD1574D27A0070B87C /* Build configuration list for PBXNativeTarget "svg_test" */;
@@ -147,6 +230,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
+				TargetAttributes = {
+					334B386F19D9CE5A00256AAD = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
 			};
 			buildConfigurationList = 95B648B61574D27A0070B87C /* Build configuration list for PBXProject "svg_test" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -154,6 +242,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 95B648B11574D27A0070B87C;
 			productRefGroup = 95B648BD1574D27A0070B87C /* Products */;
@@ -161,11 +250,21 @@
 			projectRoot = "";
 			targets = (
 				95B648BB1574D27A0070B87C /* svg_test */,
+				334B386F19D9CE5A00256AAD /* svg_Mac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		334B386E19D9CE5A00256AAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				334B387A19D9CE5A00256AAD /* Images.xcassets in Resources */,
+				334B387D19D9CE5A00256AAD /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95B648BA1574D27A0070B87C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -180,6 +279,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		334B386C19D9CE5A00256AAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				334B389019D9CE7D00256AAD /* UIBezierPath+SVG.m in Sources */,
+				334B387819D9CE5A00256AAD /* AppDelegate.m in Sources */,
+				334B389619D9D07100256AAD /* MacViewController.m in Sources */,
+				334B389919D9D3AC00256AAD /* NSBezierPath+CGPath.m in Sources */,
+				334B387519D9CE5A00256AAD /* main.m in Sources */,
+				334B389C19D9DB0200256AAD /* MacPathView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95B648B81574D27A0070B87C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,6 +309,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		334B387B19D9CE5A00256AAD /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				334B387C19D9CE5A00256AAD /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		95B648C91574D27A0070B87C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -224,6 +344,83 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		334B388B19D9CE5A00256AAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = svg_Mac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		334B388C19D9CE5A00256AAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = svg_Mac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		95B648DB1574D27A0070B87C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -272,6 +469,7 @@
 		95B648DE1574D27A0070B87C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "svg_test/svg_test-Prefix.pch";
 				INFOPLIST_FILE = "svg_test/svg_test-Info.plist";
@@ -283,6 +481,7 @@
 		95B648DF1574D27A0070B87C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "svg_test/svg_test-Prefix.pch";
 				INFOPLIST_FILE = "svg_test/svg_test-Info.plist";
@@ -294,6 +493,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		334B388A19D9CE5A00256AAD /* Build configuration list for PBXNativeTarget "svg_Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				334B388B19D9CE5A00256AAD /* Debug */,
+				334B388C19D9CE5A00256AAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		95B648B61574D27A0070B87C /* Build configuration list for PBXProject "svg_test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

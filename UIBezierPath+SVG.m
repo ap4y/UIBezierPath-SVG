@@ -5,6 +5,7 @@
 //  Created by Arthur Evstifeev on 5/29/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+//    Modified by Michael Redig 9/28/14
 
 #import "UIBezierPath+SVG.h"
 
@@ -17,16 +18,16 @@ typedef enum : NSInteger {
 @protocol SVGCommand <NSObject>
 - (void)processCommandString:(NSString *)commandString
              withPrevCommand:(NSString *)prevCommand
-                     forPath:(UIBezierPath *)path;
+                     forPath:(SKUBezierPath *)path;
 @end
 
 #pragma mark ----------SVGCommandImpl----------
 @interface SVGCommandImpl : NSObject <SVGCommand>
-@property (retain, nonatomic) NSString *prevCommand;
+@property (strong, nonatomic) NSString *prevCommand;
 
 - (void)performWithParams:(CGFloat *)params
               commandType:(CommandType)type
-                  forPath:(UIBezierPath *)path;
+                  forPath:(SKUBezierPath *)path;
 @end
 
 @implementation SVGCommandImpl
@@ -45,8 +46,8 @@ typedef enum : NSInteger {
 - (CGFloat *)getCommandParameters:(NSString *)commandString {
     NSRegularExpression *regex  = [SVGCommandImpl paramRegex];
     NSArray *matches            = [regex matchesInString:commandString
-                                                 options:0
-                                                   range:NSMakeRange(0, [commandString length])];
+												 options:0
+												   range:NSMakeRange(0, [commandString length])];
     CGFloat *result             = (CGFloat *)malloc(matches.count * sizeof(CGFloat));
     
     for (int i = 0; i < matches.count; i++) {
@@ -65,7 +66,7 @@ typedef enum : NSInteger {
 
 - (void)processCommandString:(NSString *)commandString
              withPrevCommand:(NSString *)prevCommand
-                     forPath:(UIBezierPath *)path {
+                     forPath:(SKUBezierPath *)path {
     self.prevCommand        = prevCommand;
     NSString *commandLetter = [commandString substringToIndex:1];
     CGFloat *params         = [self getCommandParameters:commandString];
@@ -77,7 +78,7 @@ typedef enum : NSInteger {
 
 - (void)performWithParams:(CGFloat *)params
               commandType:(CommandType)type
-                  forPath:(UIBezierPath *)path {
+                  forPath:(SKUBezierPath *)path {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
                                            NSStringFromSelector(_cmd)]
@@ -91,13 +92,16 @@ typedef enum : NSInteger {
 
 @implementation SVGMoveCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {        
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
     if (type == Absolute) {
         [path moveToPoint:CGPointMake(params[0], params[1])];
     } else {
-        [path moveToPoint:CGPointMake(path.currentPoint.x + params[0], 
+        [path moveToPoint:CGPointMake(path.currentPoint.x + params[0],
                                       path.currentPoint.y + params[1])];
-    }  
+        
+        
+        
+    }
 }
 
 @end
@@ -107,13 +111,15 @@ typedef enum : NSInteger {
 
 @implementation SVGLineToCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
     if (type == Absolute) {
-        [path addLineToPoint:CGPointMake(params[0], params[1])];
+        [path addLineToPointSKU:CGPointMake(params[0], params[1])];
+        
     } else {
-        [path addLineToPoint:CGPointMake(path.currentPoint.x + params[0], 
+        [path addLineToPointSKU:CGPointMake(path.currentPoint.x + params[0],
                                          path.currentPoint.y + params[1])];
-    }  
+        
+    }
 }
 
 @end
@@ -123,13 +129,15 @@ typedef enum : NSInteger {
 
 @implementation SVGHorizontalLineToCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
     if (type == Absolute) {
-        [path addLineToPoint:CGPointMake(params[0], path.currentPoint.y)];
+        [path addLineToPointSKU:CGPointMake(params[0], path.currentPoint.y)];
+        
     } else {
-        [path addLineToPoint:CGPointMake(path.currentPoint.x + params[0], 
+        [path addLineToPointSKU:CGPointMake(path.currentPoint.x + params[0],
                                          path.currentPoint.y)];
-    }  
+        
+    }
 }
 
 @end
@@ -139,13 +147,15 @@ typedef enum : NSInteger {
 
 @implementation SVGVerticalLineToCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
     if (type == Absolute) {
-        [path addLineToPoint:CGPointMake(path.currentPoint.x, params[0])];
+        [path addLineToPointSKU:CGPointMake(path.currentPoint.x, params[0])];
+        
     } else {
-        [path addLineToPoint:CGPointMake(path.currentPoint.x, 
+        [path addLineToPointSKU:CGPointMake(path.currentPoint.x,
                                          path.currentPoint.y + params[0])];
-    }  
+        
+    }
 }
 
 @end
@@ -155,16 +165,19 @@ typedef enum : NSInteger {
 
 @implementation SVGCurveToCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
     if (type == Absolute) {
-        [path addCurveToPoint:CGPointMake(params[4], params[5]) 
-                controlPoint1:CGPointMake(params[0], params[1]) 
-                controlPoint2:CGPointMake(params[2], params[3])];
+        [path addCurveToPointSKU:CGPointMake(params[4], params[5])
+                   controlPoint1:CGPointMake(params[0], params[1])
+                   controlPoint2:CGPointMake(params[2], params[3])];
+        
+        
     } else {
-        [path addCurveToPoint:CGPointMake(path.currentPoint.x + params[4], path.currentPoint.y + params[5]) 
-                controlPoint1:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1]) 
-                controlPoint2:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3])];
-    }  
+        [path addCurveToPointSKU:CGPointMake(path.currentPoint.x + params[4], path.currentPoint.y + params[5])
+                   controlPoint1:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])
+                   controlPoint2:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3])];
+        
+    }
 }
 
 @end
@@ -174,8 +187,8 @@ typedef enum : NSInteger {
 
 @implementation SVGSmoothCurveToCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
-
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
+    
     CGPoint firstControlPoint = CGPointMake(path.currentPoint.x, path.currentPoint.y);
     
     if (self.prevCommand && self.prevCommand.length > 0) {
@@ -185,28 +198,28 @@ typedef enum : NSInteger {
         
         if ([prevCommandTypeLowercase isEqualToString:@"c"] ||
             [prevCommandTypeLowercase isEqualToString:@"s"]) {
-                                            
+            
             CGFloat *prevParams = [self getCommandParameters:self.prevCommand];
             if ([prevCommandTypeLowercase isEqualToString:@"c"]) {
                 
                 if (isAbsolute) {
-                    firstControlPoint = CGPointMake(-1*prevParams[2] + 2*path.currentPoint.x, 
+                    firstControlPoint = CGPointMake(-1*prevParams[2] + 2*path.currentPoint.x,
                                                     -1*prevParams[3] + 2*path.currentPoint.y);
                 } else {
-                    CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[4], 
+                    CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[4],
                                                           path.currentPoint.y - prevParams[5]);
-                    firstControlPoint = CGPointMake(-1*(prevParams[2] + oldCurrentPoint.x) + 2*path.currentPoint.x, 
-                                                    -1*(prevParams[3] + oldCurrentPoint.y) + 2*path.currentPoint.y);                    
-                }                
+                    firstControlPoint = CGPointMake(-1*(prevParams[2] + oldCurrentPoint.x) + 2*path.currentPoint.x,
+                                                    -1*(prevParams[3] + oldCurrentPoint.y) + 2*path.currentPoint.y);
+                }
             } else {
                 if (isAbsolute) {
-                    firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x, 
+                    firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x,
                                                     -1*prevParams[1] + 2*path.currentPoint.y);
                 } else {
-                    CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[2], 
+                    CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[2],
                                                           path.currentPoint.y - prevParams[3]);
-                    firstControlPoint = CGPointMake(-1*(prevParams[0] + oldCurrentPoint.x) + 2*path.currentPoint.x, 
-                                                    -1*(prevParams[1] + oldCurrentPoint.y) + 2*path.currentPoint.y);                    
+                    firstControlPoint = CGPointMake(-1*(prevParams[0] + oldCurrentPoint.x) + 2*path.currentPoint.x,
+                                                    -1*(prevParams[1] + oldCurrentPoint.y) + 2*path.currentPoint.y);
                 }
             }
             free(prevParams);
@@ -214,14 +227,18 @@ typedef enum : NSInteger {
     }
     
     if (type == Absolute) {
-        [path addCurveToPoint:CGPointMake(params[2], params[3]) 
-                controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y) 
-                controlPoint2:CGPointMake(params[0], params[1])];
+        [path addCurveToPointSKU:CGPointMake(params[2], params[3])
+                   controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y)
+                   controlPoint2:CGPointMake(params[0], params[1])];
+        
     } else {
-        [path addCurveToPoint:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3]) 
-                controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y) 
-                controlPoint2:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])];
+        [path addCurveToPointSKU:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3])
+                   controlPoint1:CGPointMake(firstControlPoint.x, firstControlPoint.y)
+                   controlPoint2:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])];
+        
     }
+    
+    
 }
 
 @end
@@ -231,14 +248,17 @@ typedef enum : NSInteger {
 
 @implementation SVGQuadraticCurveToCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
+    
     if (type == Absolute) {
         [path addQuadCurveToPoint:CGPointMake(params[2], params[3])
                      controlPoint:CGPointMake(params[0], params[1])];
+        
     } else {
-        [path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3]) 
+        [path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + params[2], path.currentPoint.y + params[3])
                      controlPoint:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])];
     }
+    
 }
 
 @end
@@ -248,38 +268,38 @@ typedef enum : NSInteger {
 
 @implementation SVGSmoothQuadraticCurveToCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
     CGPoint firstControlPoint = CGPointMake(path.currentPoint.x, path.currentPoint.y);
     
     if (self.prevCommand && self.prevCommand.length > 0) {
         NSString *prevCommandType           = [self.prevCommand substringToIndex:1];
         NSString *prevCommandTypeLowercase  = [prevCommandType lowercaseString];
         BOOL isAbsolute                     = ![prevCommandType isEqualToString:prevCommandTypeLowercase];
-
+        
         if ([prevCommandTypeLowercase isEqualToString:@"q"]) {
             
             CGFloat *prevParams = [self getCommandParameters:self.prevCommand];
-                        
+            
             if (isAbsolute) {
-                firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x, 
+                firstControlPoint = CGPointMake(-1*prevParams[0] + 2*path.currentPoint.x,
                                                 -1*prevParams[1] + 2*path.currentPoint.y);
             } else {
-                CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[2], 
+                CGPoint oldCurrentPoint = CGPointMake(path.currentPoint.x - prevParams[2],
                                                       path.currentPoint.y - prevParams[3]);
-                firstControlPoint = CGPointMake(-1*(prevParams[0] + oldCurrentPoint.x) + 2*path.currentPoint.x, 
-                                                -1*(prevParams[1] + oldCurrentPoint.y) + 2*path.currentPoint.y);                    
-            }       
+                firstControlPoint = CGPointMake(-1*(prevParams[0] + oldCurrentPoint.x) + 2*path.currentPoint.x,
+                                                -1*(prevParams[1] + oldCurrentPoint.y) + 2*path.currentPoint.y);
+            }
             free(prevParams);
         }
     }
-    
     if (type == Absolute) {
-        [path addQuadCurveToPoint:CGPointMake(params[0], params[1]) 
+        [path addQuadCurveToPoint:CGPointMake(params[0], params[1])
                      controlPoint:CGPointMake(firstControlPoint.x, firstControlPoint.y)];
     } else {
-        [path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1]) 
+        [path addQuadCurveToPoint:CGPointMake(path.currentPoint.x + params[0], path.currentPoint.y + params[1])
                      controlPoint:CGPointMake(firstControlPoint.x, firstControlPoint.y)];
     }
+    
 }
 
 @end
@@ -289,7 +309,7 @@ typedef enum : NSInteger {
 
 @implementation SVGClosePathCommand
 
-- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(UIBezierPath *)path {
+- (void)performWithParams:(CGFloat *)params commandType:(CommandType)type forPath:(SKUBezierPath *)path {
     [path closePath];
 }
 
@@ -341,15 +361,6 @@ typedef enum : NSInteger {
                     closePath,              @"z",
                     nil];
         
-        [move release];
-        [lineTo release];
-        [horizontalLineTo release];
-        [verticalLineTo release];
-        [curveTo release];
-        [smoothCurveTo release];
-        [quadraticCurveTo release];
-        [smoothQuadraticCurveTo release];
-        [closePath release];
     }
     return self;
 }
@@ -360,27 +371,27 @@ typedef enum : NSInteger {
 
 @end
 
-#pragma mark ----------UIBezierPath (SVG)----------
+#pragma mark ----------SKUBezierPath (SVG)----------
 
-@implementation UIBezierPath (SVG)
+@implementation SKUBezierPath (SVG)
 
 + (void)processCommandString:(NSString *)commandString
        withPrevCommandString:(NSString *)prevCommand
-                     forPath:(UIBezierPath*)path {
+                     forPath:(SKUBezierPath*)path {
     
     if (!commandString || commandString.length <= 0) {
-        @throw [NSException exceptionWithName:NSInvalidArgumentException 
+        @throw [NSException exceptionWithName:NSInvalidArgumentException
                                        reason:[NSString stringWithFormat:@"Invalid command %@", commandString]
                                      userInfo:nil];
     }
-
+    
     NSString *commandLetter = [commandString substringToIndex:1];
     id<SVGCommand> command  = [[SVGCommandFactory defaultFactory] commandForCommandLetter:commandLetter];
     
-    if (command) {        
+    if (command) {
         [command processCommandString:commandString withPrevCommand:prevCommand forPath:path];
     } else {
-        @throw [NSException exceptionWithName:NSInvalidArgumentException 
+        @throw [NSException exceptionWithName:NSInvalidArgumentException
                                        reason:[NSString stringWithFormat:@"Unknown command %@", commandLetter]
                                      userInfo:nil];
     }
@@ -397,45 +408,76 @@ typedef enum : NSInteger {
     return _commandRegex;
 }
 
-+ (UIBezierPath *)addPathWithSVGString:(NSString *)svgString toPath:(UIBezierPath *)aPath {
++ (SKUBezierPath *)addPathWithSVGString:(NSString *)svgString toPath:(SKUBezierPath *)aPath {
     if (aPath && svgString && svgString.length > 0) {
         NSRegularExpression *regex              = [self commandRegex];
         __block NSTextCheckingResult *prevMatch = nil;
         __block NSString *prevCommand           = @"";
         [regex enumerateMatchesInString:svgString
-                                options:0
-                                  range:NSMakeRange(0, [svgString length])
-                             usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+								options:0
+								  range:NSMakeRange(0, [svgString length])
+							 usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
             @autoreleasepool {
                 if (prevMatch) {
                     NSUInteger length       = match.range.location - prevMatch.range.location;
                     NSString *commandString = [svgString substringWithRange:NSMakeRange(prevMatch.range.location,
-                                                                                        length)];
+																						length)];
+                    
                     
                     [self processCommandString:commandString withPrevCommandString:prevCommand forPath:aPath];
-                    [prevCommand release];
-                    [prevMatch release];
-                    prevCommand = [commandString retain];
+                    prevCommand = nil;
+                    prevMatch = nil;
+                    prevCommand = commandString;
                 }
-                prevMatch = [match retain];
+                prevMatch = match;
             }
+            
         }];
         
-        NSString *result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, 
-                                                                     svgString.length - prevMatch.range.location)];
+        
+        NSString *result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, svgString.length - prevMatch.range.location)];
+        
         [self processCommandString:result withPrevCommandString:prevCommand forPath:aPath];
-        [prevMatch release];
-        [prevCommand release];
-    }   
+    }
     return aPath;
 }
 
 - (void)addPathFromSVGString:(NSString *)svgString {
-    [UIBezierPath addPathWithSVGString:svgString toPath:self];
+    [SKUBezierPath addPathWithSVGString:svgString toPath:self];
 }
 
-+ (UIBezierPath *)bezierPathWithSVGString:(NSString *)svgString {
-    return [self addPathWithSVGString:svgString toPath:[UIBezierPath bezierPath]];
++ (SKUBezierPath *)bezierPathWithSVGString:(NSString *)svgString {
+    return [self addPathWithSVGString:svgString toPath:[SKUBezierPath bezierPath]];
 }
 
 @end
+
+#if TARGET_OS_IPHONE
+#else
+@implementation NSBezierPath (AddQuads)
+
+-(void)addQuadCurveToPoint:(CGPoint)point controlPoint:(CGPoint)controlPoint {
+    
+    CGPoint qp0, qp1, qp2, cp0, cp1, cp2, cp3;
+    CGFloat twoThree = 0.6666666666666666;
+    
+    qp0 = [self currentPoint];
+    qp1 = controlPoint;
+    qp2 = point;
+    
+    
+    cp0 = qp0;
+    cp1 = CGPointMake((qp0.x + twoThree * (qp1.x - qp0.x)), (qp0.y + twoThree * (qp1.y - qp0.y)));
+    cp2 = CGPointMake((qp2.x + twoThree * (qp1.x - qp2.x)), (qp2.y + twoThree * (qp1.y - qp2.y)));
+    
+    cp3 = qp2;
+    
+    [self curveToPoint:cp3 controlPoint1:cp1 controlPoint2:cp2];
+    
+    
+}
+
+
+@end
+
+#endif
