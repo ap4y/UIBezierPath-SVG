@@ -7,7 +7,7 @@
 //
 
 #import "MacPathView.h"
-#import "UIBezierPath+SVG.h"
+#import "SKUBezierPath+SVG.h"
 
 @implementation MacPathView
 
@@ -40,11 +40,6 @@
     [svgPath transformUsingAffineTransform:scaleUpMac];
     
     [_color setFill];
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-
-    CGContextRef context = CGBitmapContextCreate(NULL, rect.size.width * _scale, rect.size.height * _scale, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast); //fixing this warning with a proper CGBitmapInfo enum causes the build to crash - Perhaps I did something wrong?
-    
-    
     [svgPath fill];
 }
 

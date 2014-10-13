@@ -7,7 +7,7 @@
 //
 
 #import "PathView.h"
-#import "UIBezierPath+SVG.h"
+#import "SKUBezierPath+SVG.h"
 
 @implementation PathView
 

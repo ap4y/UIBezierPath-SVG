@@ -11,11 +11,11 @@
 		334B387819D9CE5A00256AAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B387719D9CE5A00256AAD /* AppDelegate.m */; };
 		334B387A19D9CE5A00256AAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334B387919D9CE5A00256AAD /* Images.xcassets */; };
 		334B387D19D9CE5A00256AAD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334B387B19D9CE5A00256AAD /* MainMenu.xib */; };
-		334B389019D9CE7D00256AAD /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */; };
+		334B389019D9CE7D00256AAD /* SKUBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A5CF6B15750D0E00C7CF8D /* SKUBezierPath+SVG.m */; };
 		334B389619D9D07100256AAD /* MacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B389519D9D07100256AAD /* MacViewController.m */; };
 		334B389919D9D3AC00256AAD /* NSBezierPath+CGPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B389819D9D3AC00256AAD /* NSBezierPath+CGPath.m */; };
 		334B389C19D9DB0200256AAD /* MacPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 334B389B19D9DB0200256AAD /* MacPathView.m */; };
-		95A5CF6C15750D3500C7CF8D /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */; };
+		95A5CF6C15750D3500C7CF8D /* SKUBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A5CF6B15750D0E00C7CF8D /* SKUBezierPath+SVG.m */; };
 		95B648C11574D27A0070B87C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B648C01574D27A0070B87C /* UIKit.framework */; };
 		95B648C31574D27A0070B87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B648C21574D27A0070B87C /* Foundation.framework */; };
 		95B648C51574D27A0070B87C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B648C41574D27A0070B87C /* CoreGraphics.framework */; };
@@ -27,7 +27,6 @@
 		95B648DA1574D27A0070B87C /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B648D81574D27A0070B87C /* ViewController_iPad.xib */; };
 		95B648E21574D2970070B87C /* PathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B648E11574D2970070B87C /* PathView.m */; };
 		95EE6A0815D13D1B001AD694 /* TigerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A0715D13D1B001AD694 /* TigerView.m */; };
-		95EE6A0B15D13D89001AD694 /* tiger.js in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A0A15D13D89001AD694 /* tiger.js */; };
 		95EE6A1315D13E43001AD694 /* tiger.js in Resources */ = {isa = PBXBuildFile; fileRef = 95EE6A0A15D13D89001AD694 /* tiger.js */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +44,8 @@
 		334B389819D9D3AC00256AAD /* NSBezierPath+CGPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+CGPath.m"; sourceTree = "<group>"; };
 		334B389A19D9DB0200256AAD /* MacPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacPathView.h; sourceTree = "<group>"; };
 		334B389B19D9DB0200256AAD /* MacPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacPathView.m; sourceTree = "<group>"; };
-		95A5CF6A15750D0E00C7CF8D /* UIBezierPath+SVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIBezierPath+SVG.h"; path = "../../UIBezierPath+SVG.h"; sourceTree = "<group>"; };
-		95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+SVG.m"; path = "../../UIBezierPath+SVG.m"; sourceTree = "<group>"; };
+		95A5CF6A15750D0E00C7CF8D /* SKUBezierPath+SVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SKUBezierPath+SVG.h"; path = "../../SKUBezierPath+SVG.h"; sourceTree = "<group>"; };
+		95A5CF6B15750D0E00C7CF8D /* SKUBezierPath+SVG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SKUBezierPath+SVG.m"; path = "../../SKUBezierPath+SVG.m"; sourceTree = "<group>"; };
 		95B648BC1574D27A0070B87C /* svg_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = svg_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B648C01574D27A0070B87C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		95B648C21574D27A0070B87C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -167,8 +166,8 @@
 			children = (
 				334B387119D9CE5A00256AAD /* svg_Mac */,
 				334B386B19D9CD6100256AAD /* iOS Classes */,
-				95A5CF6A15750D0E00C7CF8D /* UIBezierPath+SVG.h */,
-				95A5CF6B15750D0E00C7CF8D /* UIBezierPath+SVG.m */,
+				95A5CF6A15750D0E00C7CF8D /* SKUBezierPath+SVG.h */,
+				95A5CF6B15750D0E00C7CF8D /* SKUBezierPath+SVG.m */,
 				95B648C71574D27A0070B87C /* Supporting Files */,
 			);
 			path = svg_test;
@@ -283,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				334B389019D9CE7D00256AAD /* UIBezierPath+SVG.m in Sources */,
+				334B389019D9CE7D00256AAD /* SKUBezierPath+SVG.m in Sources */,
 				334B387819D9CE5A00256AAD /* AppDelegate.m in Sources */,
 				334B389619D9D07100256AAD /* MacViewController.m in Sources */,
 				334B389919D9D3AC00256AAD /* NSBezierPath+CGPath.m in Sources */,
@@ -296,13 +295,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95A5CF6C15750D3500C7CF8D /* UIBezierPath+SVG.m in Sources */,
+				95A5CF6C15750D3500C7CF8D /* SKUBezierPath+SVG.m in Sources */,
 				95B648CD1574D27A0070B87C /* main.m in Sources */,
 				95B648D11574D27A0070B87C /* AppDelegate.m in Sources */,
 				95B648D41574D27A0070B87C /* ViewController.m in Sources */,
 				95B648E21574D2970070B87C /* PathView.m in Sources */,
 				95EE6A0815D13D1B001AD694 /* TigerView.m in Sources */,
-				95EE6A0B15D13D89001AD694 /* tiger.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +498,7 @@
 				334B388C19D9CE5A00256AAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95B648B61574D27A0070B87C /* Build configuration list for PBXProject "svg_test" */ = {
 			isa = XCConfigurationList;

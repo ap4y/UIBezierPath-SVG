@@ -7,7 +7,7 @@
 //
 
 #import "TigerView.h"
-#import "UIBezierPath+SVG.h"
+#import "SKUBezierPath+SVG.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TigerView () {

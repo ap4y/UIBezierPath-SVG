@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIBezierPath+SVG.h"
+#import "SKUBezierPath+SVG.h"
 #import "NSBezierPath+CGPath.h"
 
 @interface MacViewController : NSObject
