@@ -1,11 +1,11 @@
-UIBezierPath+SVG
+SKUBezierPath+SVG
 =============
 
-UIBezierPath class category with SVG parser
+`SKUBezierPath` class category with SVG parser. This project was previously called `UIBezierPath+SVG`, it was renamed to `SKUBezierPath+SVG` with introduction of `NSBezierPath` support, see #5.
 
 [<img src="https://raw.github.com/ap4y/UIBezierPath-SVG/master/photo.png" width="420px"></img>](https://raw.github.com/ap4y/UIBezierPath-SVG/master/photo.png)
 
-[<img src="https://raw.github.com/mredig/UIBezierPath-SVG/master/macSS.png"></img>](https://raw.github.com/mredig/UIBezierPath-SVG/master/macSS.png)
+[<img src="https://raw.github.com/mredig/UIBezierPath-SVG/master/macSS.png"></img>](https://raw.github.com/ap4y/UIBezierPath-SVG/master/macSS.png)
 
 ## Usage ##
 
@@ -13,7 +13,10 @@ UIBezierPath class category with SVG parser
 
 Example project included with sample SVG icons (from Raphael free icons collection).
 
-(It was renamed "SKUBezierPath" to ease cross platform development in SpriteKit. However, SpriteKit is not a requirement - NSBezierPath or UIBezierPath will still work, depending on the platform you're developing for)
+Contributors
+-------
+
+`ARC` and `NSBezierPath` support was implemented by [@mredig](https://github.com/mredig).
 
 Reference
 -------
