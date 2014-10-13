@@ -17,7 +17,6 @@
 #define addCurveToPointSKU curveToPoint
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
-
 #endif
 
 
@@ -28,7 +27,6 @@
 
 @end
 
-
 #if TARGET_OS_IPHONE
 #else
 @interface NSBezierPath (AddQuads)
@@ -36,5 +34,4 @@
 -(void)addQuadCurveToPoint:(CGPoint)point controlPoint:(CGPoint)controlPoint;
 
 @end
-
 #endif

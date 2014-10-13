@@ -7,7 +7,7 @@
 //
 //    Modified by Michael Redig 9/28/14
 
-#import "UIBezierPath+SVG.h"
+#import "SKUBezierPath+SVG.h"
 
 #pragma mark ----------Common----------
 typedef enum : NSInteger {
