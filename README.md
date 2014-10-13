@@ -1,7 +1,7 @@
 SKUBezierPath+SVG
 =============
 
-`SKUBezierPath` class category with SVG parser. This project was previously called `UIBezierPath+SVG`, it was renamed to `SKUBezierPath+SVG` with introduction of `NSBezierPath` support, see [#5](https://github.com/ap4y/UIBezierPath-SVG/pull/5).
+`SKUBezierPath` is a `UIBezierPath`/`NSBezeierPath` class category with SVG parser. This project was previously called `UIBezierPath+SVG`, it was renamed to `SKUBezierPath+SVG` with introduction of `NSBezierPath` support, see [#5](https://github.com/ap4y/UIBezierPath-SVG/pull/5).
 
 [<img src="https://raw.github.com/ap4y/UIBezierPath-SVG/master/photo.png" width="420px"></img>](https://raw.github.com/ap4y/UIBezierPath-SVG/master/photo.png)
 
