@@ -18,6 +18,11 @@ Contributors
 
 `ARC` and `NSBezierPath` support was implemented by [@mredig](https://github.com/mredig).
 
+Alternative Projects
+-------
+
+Check [IJSVG](https://github.com/curthard89/IJSVG) (`NSBezierPath` only) if you need support for transfortmations, elements, etc.
+
 Reference
 -------
 
