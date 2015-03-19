@@ -36,11 +36,31 @@ typedef enum : NSInteger {
     static NSRegularExpression *_paramRegex;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _paramRegex = [[NSRegularExpression alloc] initWithPattern:@"[-+]?[0-9]*\\.?[0-9]+"
+        _paramRegex = [[NSRegularExpression alloc] initWithPattern:@"[-+]?[0-9]*\\.?[0-9]+e?[-+]?[0-9]*"
                                                            options:0
                                                              error:nil];
     });
     return _paramRegex;
+}
+
++ (NSNumberFormatter *)scientificNumberFormatter {
+    static NSNumberFormatter *_numberFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _numberFormatter = [[NSNumberFormatter alloc] init];
+        _numberFormatter.numberStyle = NSNumberFormatterScientificStyle;
+    });
+    return _numberFormatter;
+}
+
++ (NSNumberFormatter *)decimalNumberFormatter {
+    static NSNumberFormatter *_numberFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _numberFormatter = [[NSNumberFormatter alloc] init];
+        _numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    });
+    return _numberFormatter;
 }
 
 - (CGFloat *)getCommandParameters:(NSString *)commandString {
@@ -53,7 +73,12 @@ typedef enum : NSInteger {
     for (int i = 0; i < matches.count; i++) {
         NSTextCheckingResult *match = [matches objectAtIndex:i];
         NSString *paramString       = [commandString substringWithRange:match.range];
-        CGFloat param               = (CGFloat)[paramString floatValue];
+        CGFloat param = 0;
+        if ([paramString rangeOfString:@"e" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            param = [[[[self class] scientificNumberFormatter] numberFromString:paramString] floatValue];
+        } else {
+            param = [[[[self class] decimalNumberFormatter] numberFromString:paramString] floatValue];
+        }
         result[i]                   = param;
     }
     
@@ -401,7 +426,7 @@ typedef enum : NSInteger {
     static NSRegularExpression *_commandRegex;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _commandRegex = [[NSRegularExpression alloc] initWithPattern:@"[A-Za-z]"
+        _commandRegex = [[NSRegularExpression alloc] initWithPattern:@"[A-DF-Za-df-z]"
                                                              options:0
                                                                error:nil];
     });
